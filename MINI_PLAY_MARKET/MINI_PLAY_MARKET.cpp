@@ -1270,7 +1270,7 @@ void all() {
 	if (what == 3) {
 		int lvl = 0;
 		gotoxy(0, 2400);
-		cout << "у вас на вибір є 2 lvl 1 lvl дуже простий 2 средній";
+		cout << "у вас на вибір є 3 lvl 1 lvl дуже простий 2 lvl средній 3 lvl hard";
 		gotoxy(0, 2401);
 		cout << "ваш вибір: ";
 		cin >> lvl;
@@ -1752,6 +1752,296 @@ void all() {
 
 
 			}
+			}
+			else
+			if (lvl == 3) {
+				gotoxy(0, 0);
+				int verh = 14;
+				int right = 14;
+
+				for (int i = 0; i < right; i++) {
+					cout << "*";
+				}
+				cout << endl;
+				for (int j = 0; j < verh; j++) {
+					for (int i = 0; i < 14; i++) {
+						cout << " ";
+						if (i == 13) {
+							cout << "*" << endl;
+						}
+					}
+				}
+
+				for (int i = 0; i < 14; i++) {
+					cout << "*";
+				}//242
+				//інти які я використовую//
+				int perevirka = 1;
+				int plat_x = 7;
+				int plat_y = 13;
+
+
+
+				int plat_x_1 = 7;
+				int plat_y_1 = 12;
+
+
+				//набросок
+				perenos(plat_x, plat_y);
+				cout << "@";
+
+				perenos(plat_x_1, plat_y_1);
+				cout << "|";
+
+				perenos(30, 1);
+				cout << "суть ігри уварачеватися від машин";
+				perenos(20, 20);
+				//ще інти
+				int rand_car = 5;//rand_car = 0 + rand() % (12);
+				int rand_car1 = 5;//rand_car = 0 + rand() % (12);
+				int car_x = 5;
+				int car_y = 0;
+				int car_x1 = 5;
+				int car_y1 = 0;
+				int car_x2 = 5;
+				int car_y2 = 0;
+				int dead = 0;
+
+				int speed = 110;
+				int speed_score = 9;
+				int rang = 1;
+				int new_ckore = 0;
+				int car_perevirka = 1;
+				perenos(30, 2);
+				/// <summary>
+				///щочики
+				/// </summary>
+				cout << "рівень швидкості: " << rang;
+
+				perenos(30, 3);
+				cout << "машин до нового рівня: " << speed_score;
+				while (1)
+				{
+					//рандом машин
+					if (car_perevirka == 1) {
+						car_x = 0 + rand() % (14);
+						car_x = 0 + rand() % (14);
+						car_x = 0 + rand() % (14);
+
+						car_x1 = 0 + rand() % (14);
+						car_x1 = 0 + rand() % (14);
+						car_x1 = 0 + rand() % (14);
+						car_x2 = 0 + rand() % (14);
+						car_x2 = 0 + rand() % (14);
+						car_x2 = 0 + rand() % (14);
+						if (car_x == car_x1 or car_x1 == car_x2 or car_x2 == car_x  ) {
+							car_x = 0 + rand() % (14);
+							car_x = 0 + rand() % (14);
+							car_x = 0 + rand() % (14);
+
+							car_x1 = 0 + rand() % (14);
+							car_x1 = 0 + rand() % (14);
+							car_x1 = 0 + rand() % (14);
+							car_x2 = 0 + rand() % (14);
+							car_x2 = 0 + rand() % (14);
+							car_x2 = 0 + rand() % (14);
+						}
+						car_perevirka = 2;
+					}
+
+					//рандомні машини і їх двіженіє 
+					if (car_y < 14) {
+						Sleep(speed);
+						perenos(car_x, car_y);
+						cout << " ";
+						car_y++;
+
+						perenos(car_x, car_y);
+						cout << "D";
+
+						//2
+						perenos(car_x1, car_y1);
+						cout << " ";
+						car_y1++;
+
+						perenos(car_x1, car_y1);
+						cout << "D";
+						//3
+						perenos(car_x2, car_y2);
+						cout << " ";
+						car_y2++;
+
+						perenos(car_x2, car_y2);
+						cout << "D";
+						if (car_y == 14) {
+							perenos(car_x, car_y);
+							cout << " ";
+							car_y = 0;
+
+							perenos(car_x1, car_y1);
+							cout << " ";
+							car_y1 = 0;
+							perenos(car_x2, car_y2);
+							cout << " ";
+							car_y2 = 0;
+							car_perevirka = 1;
+							speed_score--;
+							perenos(30, 3);
+							cout << "машин до нового рівня: " << speed_score;
+							if (speed >= 10) {
+								if (speed_score == 0) {
+									speed = speed - 10;
+									speed_score = 9;
+									rang++;
+									perenos(30, 2);
+									cout << "рівень швидкості: " << rang;
+
+
+								}
+							}
+
+						}
+						if (plat_y == car_y and plat_x == car_x) {
+							perenos(car_x, car_y);
+							cout << " ";
+
+							dead = 1;
+						}
+
+						if (plat_y_1 == car_y and plat_x_1 == car_x) {
+							perenos(car_x, car_y);
+							cout << " ";
+
+							dead = 1;
+
+						}
+
+					
+
+						if (plat_y == car_y1 and plat_x == car_x1) {
+							perenos(car_x1, car_y1);
+							cout << " ";
+
+							dead = 1;
+						}
+
+						if (plat_y_1 == car_y1 and plat_x_1 == car_x1) {
+							perenos(car_x1, car_y1);
+							cout << " ";
+
+							dead = 1;
+
+						}
+
+
+						if (plat_y == car_y2 and plat_x == car_x2) {
+							perenos(car_x2, car_y2);
+							cout << " ";
+
+							dead = 1;
+						}
+
+						if (plat_y_1 == car_y2 and plat_x_1 == car_x2) {
+							perenos(car_x2, car_y2);
+							cout << " ";
+
+							dead = 1;
+
+						}
+
+
+					}
+
+
+
+
+
+					//обробка клавиш 
+
+
+					GetKEY();
+
+					//клвашива в ліво
+					if (KEY[37])//left
+					{
+
+
+						if (plat_x >= 1 and plat_x_1 >= 1) {
+							perenos(plat_x, plat_y);
+							cout << " ";
+
+							perenos(plat_x_1, plat_y_1);
+							cout << " ";
+
+
+
+
+
+							plat_x--;
+							plat_x_1--;
+
+							perenos(plat_x, plat_y);
+							cout << "@";
+
+							perenos(plat_x_1, plat_y_1);
+							cout << "|";
+
+
+						}
+
+
+					}
+					//клавиша в право
+					else
+						if (KEY[39])//right
+						{
+
+							if (plat_x <= 12 and plat_x_1 <= 12) {
+								//закраска старих
+								perenos(plat_x, plat_y);
+								cout << " ";
+
+								perenos(plat_x_1, plat_y_1);
+								cout << " ";
+
+
+
+
+
+								plat_x++;
+								plat_x_1++;
+
+								perenos(plat_x, plat_y);
+								cout << "@";
+
+								perenos(plat_x_1, plat_y_1);
+								cout << "|";
+
+							}
+
+
+
+						}
+
+
+
+
+
+
+
+
+
+
+
+					if (dead == 1) {
+						perenos(30, 50);
+						cout << "ви проиграли ви збилися в машину";
+						Sleep(1000);
+						break;
+					}
+
+
+				}
 			}
 
 	}
