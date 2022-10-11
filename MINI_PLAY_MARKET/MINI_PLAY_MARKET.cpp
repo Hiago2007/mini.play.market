@@ -121,7 +121,7 @@ void all() {
 
 
 
-	int what = 1;
+	int what = 0;
 	int yes_or_no = 0;
 	//меню
 
@@ -141,7 +141,7 @@ void all() {
 		perenos(6, 1002);
 		cout << "правила ігор";
 
-		int what_1 = 0;
+		int what_1 = 1;
 		int true_false = 1;
 		while (true_false != 0) {
 			if (what_1 == 1) {
@@ -274,10 +274,10 @@ void all() {
 						if (KEY[13])
 						{
 							if (gde == 1001) {
-								what_1 = 3;
+								what_1 = 2;
 							}
 							else if (gde == 1002) {
-								what_1 = 2;
+								what_1 = 3;
 							}
 
 						}
