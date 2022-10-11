@@ -100,7 +100,28 @@ void ramka() {
 
 
 
+void ramka1() {
 
+	perenos(0, 2000);
+	for (int i = 0; i < 24; i++) {
+		cout << "*";
+	}
+
+	for (int j = 2001; j < 2013; j++) {
+		perenos(0, j);
+		for (int i = 0; i < 24; i++) {
+
+			perenos(i, j);
+			if (i == 23) {
+				cout << "*" << endl;
+			}
+		}
+	}
+	perenos(0, 2012);
+	for (int i = 0; i < 24; i++) {
+		cout << "*";
+	}
+}
 
 
 
@@ -360,9 +381,179 @@ void all() {
 	int regim = 0;
 	//гра 1 пін-понг
 	if (what == 2) {
-		perenos(25, 500);
-		cout << "який режим хочете зыграти на 1 чи на 2 чоловік: ";
-		cin >> regim;
+		
+
+		ramka1();
+		int gde = 2;
+		SetColor(RED_FADE, WHITE);
+
+		perenos(3, 2001);
+		cout << "на одного гравця";
+
+		perenos(3, 2002);
+		cout << "на двох гравців";
+
+		int what_1 = 1;
+		int true_false = 1;
+		while (true_false != 0) {
+			if (what_1 == 1) {
+				perenos(0, 2000);
+				GetKEY();
+
+				if (KEY[38])
+				{
+					gde = 2001;
+					if (gde == 2001) {
+						for (int i = 0; i < 23; i++) {
+							perenos(i, gde);
+							SetColor(RED_FADE, WHITE);
+							cout << " ";
+						}
+						perenos(3, gde);
+						cout << "на одного гравця";
+
+
+
+
+
+
+
+
+
+						perenos(0, gde);
+
+
+						for (int i = 0; i < 23; i++) {
+							perenos(i, gde);
+							SetColor(RED_FADE, BLACK);
+							cout << " ";
+						}
+						perenos(3, gde);
+						cout << "на одного гравця";
+
+					}
+
+
+					if (gde == 2002) {
+
+						for (int i = 0; i < 23; i++) {
+							perenos(i, 2001);
+							SetColor(RED_FADE, WHITE);
+							cout << " ";
+						}
+						perenos(3, 2001);
+						cout << "на одного гравця";
+						gde--;
+					}
+					else
+						if (gde == 2001) {
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, 2002);
+								SetColor(RED_FADE, WHITE);
+								cout << " ";
+							}
+							perenos(3, 2002);
+							cout << "на двох гравців";
+							gde++;
+						}
+
+
+				}
+				//клавиша вниз
+				else
+					if (KEY[40])
+					{
+						gde = 2002;
+						if (gde == 2002) {
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, gde);
+								SetColor(RED_FADE, WHITE);
+								cout << " ";
+							}
+							perenos(3, gde);
+
+
+
+
+
+
+
+
+
+
+							perenos(0, gde);
+
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, gde);
+								SetColor(RED_FADE, BLACK);
+								cout << " ";
+							}
+							perenos(3, gde);
+							cout << "на двох гравців";
+
+						}
+
+						if (gde == 1002) {
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, 2001);
+								SetColor(RED_FADE, WHITE);
+								cout << " ";
+							}
+							perenos(3, 2001);
+							cout << "на одного гравця";
+							gde--;
+						}
+						else
+							if (gde == 2001) {
+
+								for (int i = 0; i < 23; i++) {
+									perenos(i, 2002);
+									SetColor(RED_FADE, WHITE);
+									cout << " ";
+								}
+								perenos(3, 2002);
+
+								cout << "на двох гравців";
+								gde++;
+							}
+					}
+					else
+						if (KEY[13])
+						{
+							if (gde == 2001) {
+								what_1 = 2;
+							}
+							else if (gde == 2002) {
+								what_1 = 3;
+							}
+
+						}
+			}
+			SetColor(WHITE, BLACK);
+
+
+			if (what_1 == 2) {
+				regim = 2;
+				true_false = 0;
+
+
+			}
+			if (what_1 == 3) {
+				regim = 1;
+				true_false = 0;
+			}
+
+
+
+
+
+
+
+		}
 		if (regim == 1) {
 			//рамки гри
 			gotoxy(0, 0);
@@ -817,9 +1008,9 @@ void all() {
 			int perevirka = 1;
 			int chochik = 0;
 			int chochik1 = 0;
-			gotoxy(80, 0);
+			gotoxy(80, 5);
 			cout << "щочик балов ігрока 1:  ";
-			gotoxy(93, 0);
+			gotoxy(93, 5);
 			cout << chochik;
 
 			gotoxy(80, 1);
@@ -948,9 +1139,9 @@ void all() {
 						if (obman_x == 19) {
 							perevirka = 2;
 							chochik1 = chochik1 + 100;
-							gotoxy(80, 0);
+							gotoxy(80, 5);
 							cout << "щочик балов ігрока 2:  ";
-							gotoxy(93, 0);
+							gotoxy(93, 5);
 							cout << chochik1;
 						}
 
@@ -958,9 +1149,9 @@ void all() {
 					if (obman_x < 21) {
 
 						chochik1 = chochik1 - 50;
-						gotoxy(80, 0);
+						gotoxy(80, 5);
 						cout << "щочик балов игрока 2:  ";
-						gotoxy(93, 0);
+						gotoxy(93, 5);
 						cout << chochik1;
 					}
 
@@ -1054,9 +1245,9 @@ void all() {
 						if (obman_x == 3) {
 							perevirka = 1;
 							chochik = chochik + 100;
-							gotoxy(80, 0);
+							gotoxy(80, 5);
 							cout << "щочик балов ігрока 1:  ";
-							gotoxy(93, 0);
+							gotoxy(93, 5);
 							cout << chochik;
 						}
 
@@ -1065,9 +1256,9 @@ void all() {
 					if (obman_x < 2) {
 
 						chochik = chochik - 50;
-						gotoxy(80, 0);
+						gotoxy(80, 5);
 						cout << "щочик балов ігрока 1:  ";
-						gotoxy(93, 0);
+						gotoxy(93, 5);
 						cout << chochik;
 					}
 
