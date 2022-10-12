@@ -369,8 +369,8 @@ void all() {
 		cout << "щоб увійти в програму 3 нажміть 4";
 
 		gotoxy(25, 806);
-
 		cout << "ваш вибір: ";
+		
 		cin >> what;
 
 
@@ -394,8 +394,8 @@ void all() {
 		cout << "на двох гравців";
 
 		int what_1 = 1;
-		int true_false = 1;
-		while (true_false != 0) {
+		int true_false_1 = 1;
+		while (true_false_1 != 0) {
 			if (what_1 == 1) {
 				perenos(0, 2000);
 				GetKEY();
@@ -496,7 +496,7 @@ void all() {
 
 						}
 
-						if (gde == 1002) {
+						if (gde == 2002) {
 
 							for (int i = 0; i < 23; i++) {
 								perenos(i, 2001);
@@ -516,7 +516,6 @@ void all() {
 									cout << " ";
 								}
 								perenos(3, 2002);
-
 								cout << "на двох гравців";
 								gde++;
 							}
@@ -536,15 +535,15 @@ void all() {
 			SetColor(WHITE, BLACK);
 
 
-			if (what_1 == 2) {
+			if (what_1 == 3) {
 				regim = 2;
-				true_false = 0;
+				true_false_1 = 0;
 
 
 			}
-			if (what_1 == 3) {
+			if (what_1 == 2) {
 				regim = 1;
-				true_false = 0;
+				true_false_1 = 0;
 			}
 
 
