@@ -76,7 +76,7 @@ void SetColor(ConsoleColor text, ConsoleColor background)
 }
 void ramka() {
 
-	perenos(0,1000);
+	perenos(0, 1000);
 	for (int i = 0; i < 24; i++) {
 		cout << "*";
 	}
@@ -84,7 +84,7 @@ void ramka() {
 	for (int j = 1001; j < 1013; j++) {
 		perenos(0, j);
 		for (int i = 0; i < 24; i++) {
-			
+
 			perenos(i, j);
 			if (i == 23) {
 				cout << "*" << endl;
@@ -370,7 +370,7 @@ void all() {
 
 		gotoxy(25, 806);
 		cout << "ваш вибір: ";
-		
+
 		cin >> what;
 
 
@@ -381,7 +381,7 @@ void all() {
 	int regim = 0;
 	//гра 1 пін-понг
 	if (what == 2) {
-		
+
 
 		ramka1();
 		int gde = 2;
@@ -536,13 +536,13 @@ void all() {
 
 
 			if (what_1 == 3) {
-				regim = 2;
+				regim = 1;
 				true_false_1 = 0;
 
 
 			}
 			if (what_1 == 2) {
-				regim = 1;
+				regim = 2;
 				true_false_1 = 0;
 			}
 
@@ -619,7 +619,7 @@ void all() {
 			cout << "Лучка Кирил  ";
 			int x_y1 = 0;
 			int x_y = 0;
-			int x_y3 = 0;
+			int or_or = 1;
 			int or_all = 0;
 			int x_rand = 0;
 			int y_rand = 0;
@@ -628,53 +628,112 @@ void all() {
 			//генератори рандомних чисел
 			x_y = 1 + rand() % (2);
 			x_y1 = 1 + rand() % (2);
-			x_y3 = 1 + rand() % (3);
+
+			
 			while (1)
 			{
 				//х y мяча
 				ConsoleCursorVisible(false, 100);
-				perenos(80, 1);
-				cout << obman_x << " " << obman_y;
+				perenos(100, 10);
+				cout << obman_x << "  " << obman_y;
 
 
 				//мяч
 				if (perevirka == 1) {
+					
+					if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
 
-					if (x_y1 == 1) {
+						or_or = 1 + rand() % (3);
 
-
-
-
-
-
-						//ALL
-
-						//право-вниз
-						if (obman_y < 14 & obman_x < 24 & obman_y > 0) {
-
-
-
-							perenos(obman_x, obman_y);
-							cout << " ";
-
-							obman_x++;
-							obman_y++;
-							perenos(obman_x, obman_y);
-							cout << "o";
-							Sleep(85);
-
-
-
-
+					}
+					
+						
+						if (obman_y == i or obman_y == i1 or obman_y == i2) {
+							if (obman_x == 3) {
+								or_or = 1 + rand() % (3);
+							}
 						}
+
+						if (x_y1 == 1) {
+
+
+
+						if (or_or == 1) {
+							if (obman_y < 14 & obman_x < 24 & obman_y > 0) {
+
+
+
+								perenos(obman_x, obman_y);
+								cout << " ";
+
+								obman_x++;
+								obman_y++;
+								perenos(obman_x, obman_y);
+								cout << "o";
+								Sleep(85);
+
+
+
+
+							}
+						}
+
+						else 
+							if (or_or == 2) {
+								if (obman_y < 14 & obman_x < 24 & obman_y > 0 ) {
+
+
+
+									perenos(obman_x, obman_y);
+									cout << " ";
+									obman_x++;
+									obman_x++;
+									obman_y++;
+									perenos(obman_x, obman_y);
+									cout << "o";
+									Sleep(85);
+
+
+
+
+								}
+								if (obman_x == 21) {
+									or_or = 1;
+								}
+							}
+
+							else
+								if (or_or == 3) {
+									if (obman_y < 14 & obman_x < 24 & obman_y > 0) {
+
+
+
+										perenos(obman_x, obman_y);
+										cout << " ";
+										
+										obman_x++;
+										obman_y++;
+										obman_y++;
+										perenos(obman_x, obman_y);
+										cout << "o";
+										Sleep(85);
+
+
+
+
+									}
+									if (obman_y == 11) {
+										or_or = 1;
+									}
+								}
+
+
+
 						if (obman_y == 12) {
 							x_y1 = 2;
 
 						}
-						if (obman_y == 1) {
-							x_y1 = 1;
-
-						}
+					
 						if (obman_x == 22) {
 							perevirka = 2;
 						}
@@ -695,17 +754,82 @@ void all() {
 					//право-верх
 					if (x_y1 == 2) {
 
+						if (or_or == 1) {
+							if (obman_y < 14 & obman_x < 24 & obman_y > 0) {
 
 
-						perenos(obman_x, obman_y);
-						cout << " ";
 
-						obman_x++;
-						obman_y--;
-						perenos(obman_x, obman_y);
-						cout << "o";
+								perenos(obman_x, obman_y);
+								cout << " ";
 
-						Sleep(85);
+								obman_x++;
+								obman_y--;
+								perenos(obman_x, obman_y);
+								cout << "o";
+								Sleep(85);
+
+
+
+
+							}
+						}
+
+						else
+							if (or_or == 2) {
+								if (obman_y < 14 & obman_x < 24 & obman_y > 0) {
+
+
+
+									perenos(obman_x, obman_y);
+									cout << " ";
+									obman_x++;
+									obman_x++;
+									obman_y--;
+									perenos(obman_x, obman_y);
+									cout << "o";
+									Sleep(85);
+
+
+
+
+								}
+								if (obman_x == 21) {
+									or_or = 1;
+								}
+							}
+
+							else
+								if (or_or == 3) {
+									if (obman_y < 13 & obman_x < 23 & obman_y > 0) {
+
+
+
+										perenos(obman_x, obman_y);
+										cout << " ";
+
+										obman_x++;
+										obman_y--;
+										obman_y--;
+										perenos(obman_x, obman_y);
+										cout << "o";
+										Sleep(85);
+
+
+
+
+									}
+									if (obman_y == 2) {
+										or_or = 1;
+									}
+
+									if (obman_y == 0) {
+										cout << "*";
+										perenos(obman_x, 1);
+										cout << "o";
+										x_y1 = 1;
+									}
+								}
+
 
 
 
@@ -735,31 +859,118 @@ void all() {
 
 
 
+					if (obman_x == 0) {
+						perevirka = 2;
+					}
 
-
-
-
+					if (obman_y == 0) {
+						cout << "*";
+						perenos(obman_x, 1);
+						cout << "o";
+						x_y1 = 1;
+					}
 
 				}
 
 				else if (perevirka == 2) {
+					if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
+
+						or_or = 1 + rand() % (3);
+
+					}
+
+
+					if (obman_y == i or obman_y == i1 or obman_y == i2) {
+						if (obman_x == 3) {
+							or_or = 1 + rand() % (3);
+						}
+					}
 
 
 					//ліво-верх
 					if (x_y == 1) {
-						if (obman_y >= 0 & obman_x <= 24 & obman_x >= 0) {
 
 
-							perenos(obman_x, obman_y);
-							cout << " ";
+						if (or_or == 1) {
+							if (obman_y < 14 & obman_x > 1 & obman_y > 0) {
 
-							obman_x--;
-							obman_y--;
-							perenos(obman_x, obman_y);
-							cout << "o";
 
-							Sleep(85);
+
+								perenos(obman_x, obman_y);
+								cout << " ";
+
+								obman_x--;
+								obman_y--;
+								perenos(obman_x, obman_y);
+								cout << "o";
+								Sleep(85);
+
+
+
+
+							}
 						}
+
+						else
+							if (or_or == 2) {
+								if (obman_y < 14 & obman_x > 1 & obman_y > 0) {
+
+
+
+									perenos(obman_x, obman_y);
+									cout << " ";
+									obman_x--;
+									obman_x--;
+									obman_y--;
+									perenos(obman_x, obman_y);
+									cout << "o";
+									Sleep(85);
+
+
+
+
+								}
+								if (obman_x == 2) {
+									or_or = 1;
+								}
+							}
+
+							else
+								if (or_or == 3) {
+									if (obman_y < 14 & obman_x > 1 & obman_y > 0 and obman_y <= 11) {
+
+
+
+										perenos(obman_x, obman_y);
+										cout << " ";
+
+										obman_x--;
+										obman_y--;
+										obman_y--;
+										perenos(obman_x, obman_y);
+										cout << "o";
+										Sleep(85);
+
+
+
+
+									}
+									if (obman_y == 11) {
+										or_or = 1;
+									}
+								}
+
+
+
+
+
+
+
+
+
+
+
+
 
 						if (obman_y == 12) {
 							x_y = 1;
@@ -790,18 +1001,75 @@ void all() {
 					}
 					//ліво низ
 					if (x_y == 2) {
-						if (obman_y >= 0 & obman_x <= 24 & obman_x >= 0) {
+						if (or_or == 1) {
+							if (obman_y < 14 & obman_x > 1 & obman_y > 0) {
 
-							perenos(obman_x, obman_y);
-							cout << " ";
 
-							obman_x--;
-							obman_y++;
-							perenos(obman_x, obman_y);
-							cout << "o";
 
-							Sleep(85);
+								perenos(obman_x, obman_y);
+								cout << " ";
+
+								obman_x--;
+								obman_y++;
+								perenos(obman_x, obman_y);
+								cout << "o";
+								Sleep(85);
+
+
+
+
+							}
 						}
+
+						else
+							if (or_or == 2) {
+								if (obman_y < 14 & obman_x > 1 & obman_y > 0) {
+
+
+
+									perenos(obman_x, obman_y);
+									cout << " ";
+									obman_x--;
+									obman_x--;
+									obman_y++;
+									perenos(obman_x, obman_y);
+									cout << "o";
+									Sleep(85);
+
+
+
+
+								}
+								if (obman_x == 2) {
+									or_or = 1;
+								}
+							}
+
+							else
+								if (or_or == 3) {
+									if (obman_y < 14 & obman_x > 1 & obman_y > 0) {
+
+
+
+										perenos(obman_x, obman_y);
+										cout << " ";
+
+										obman_x--;
+										obman_y++;
+										obman_y++;
+										perenos(obman_x, obman_y);
+										cout << "o";
+										Sleep(85);
+
+
+
+
+									}
+									if (obman_y == 11) {
+										or_or = 1;
+									}
+								}
+
 						if (obman_y == 12) {
 							x_y = 1;
 
@@ -846,6 +1114,26 @@ void all() {
 						cout << chochik;
 					}
 
+
+
+					if (obman_x == 0) {
+						perevirka = 1;
+					}
+
+
+					if (obman_y == i or obman_y == i1 or obman_y == i2) {
+						if (obman_x == 3) {
+							perevirka = 1;
+						}
+					}
+
+					
+					if (obman_y == i or obman_y == i1 or obman_y == i2) {
+						if (obman_x < 3) {
+							perevirka = 2;
+						}
+					}
+				
 
 
 
@@ -1007,17 +1295,9 @@ void all() {
 			int perevirka = 1;
 			int chochik = 0;
 			int chochik1 = 0;
-			gotoxy(80, 5);
-			cout << "щочик балов ігрока 1:  ";
-			gotoxy(93, 5);
-			cout << chochik;
-
-			gotoxy(80, 1);
-			cout << "щочик баловігрок 2:  ";
-			gotoxy(93, 1);
-			cout << chochik1;
-			gotoxy(90, 0);
-			gotoxy(100, 0);
+			
+	
+			
 
 
 			int x_y1 = 0;
@@ -1035,8 +1315,7 @@ void all() {
 			{
 				//х y мяча
 				ConsoleCursorVisible(false, 100);
-				perenos(80, 1);
-				cout << obman_x << " " << obman_y;
+				
 
 
 				//мяч
@@ -1134,25 +1413,7 @@ void all() {
 
 
 
-					if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-						if (obman_x == 19) {
-							perevirka = 2;
-							chochik1 = chochik1 + 100;
-							gotoxy(80, 5);
-							cout << "щочик балов ігрока 2:  ";
-							gotoxy(93, 5);
-							cout << chochik1;
-						}
-
-					}
-					if (obman_x < 21) {
-
-						chochik1 = chochik1 - 50;
-						gotoxy(80, 5);
-						cout << "щочик балов игрока 2:  ";
-						gotoxy(93, 5);
-						cout << chochik1;
-					}
+				
 
 
 				}
@@ -1240,26 +1501,7 @@ void all() {
 
 					}
 
-					if (obman_y == i or obman_y == i1 or obman_y == i2) {
-						if (obman_x == 3) {
-							perevirka = 1;
-							chochik = chochik + 100;
-							gotoxy(80, 5);
-							cout << "щочик балов ігрока 1:  ";
-							gotoxy(93, 5);
-							cout << chochik;
-						}
-
-					}
-
-					if (obman_x < 2) {
-
-						chochik = chochik - 50;
-						gotoxy(80, 5);
-						cout << "щочик балов ігрока 1:  ";
-						gotoxy(93, 5);
-						cout << chochik;
-					}
+			
 
 
 
@@ -1685,266 +1927,8 @@ void all() {
 
 			}
 		}
-		else 
-		if (lvl == 2) {
-			gotoxy(0, 0);
-			int verh = 14;
-			int right = 14;
-
-			for (int i = 0; i < right; i++) {
-				cout << "*";
-			}
-			cout << endl;
-			for (int j = 0; j < verh; j++) {
-				for (int i = 0; i < 14; i++) {
-					cout << " ";
-					if (i == 13) {
-						cout << "*" << endl;
-					}
-				}
-			}
-
-			for (int i = 0; i < 14; i++) {
-				cout << "*";
-			}//242
-			//інти які я використовую//
-			int perevirka = 1;
-			int plat_x = 7;
-			int plat_y = 13;
-
-
-
-			int plat_x_1 = 7;
-			int plat_y_1 = 12;
-			
-
-			//набросок
-			perenos(plat_x, plat_y);
-			cout << "@";
-
-			perenos(plat_x_1, plat_y_1);
-			cout << "|";
-
-			perenos(30, 1);
-			cout << "суть ігри уварачеватися від машин";
-			perenos(20, 20);
-			//ще інти
-			int rand_car = 5;//rand_car = 0 + rand() % (12);
-			int rand_car1 = 5;//rand_car = 0 + rand() % (12);
-			int car_x = 5;
-			int car_y = 0;
-			int car_x1 = 5;
-			int car_y1 = 0;
-
-			int dead = 0;
-
-			int speed = 110;
-			int speed_score = 9;
-			int rang = 1;
-			int new_ckore = 0;
-			int car_perevirka = 1;
-			perenos(30, 2);
-			/// <summary>
-			///щочики
-			/// </summary>
-			cout << "рівень швидкості: " << rang;
-
-			perenos(30, 3);
-			cout << "машин до нового рівня: " << speed_score;
-			while (1)
-			{
-				//рандом машин
-				if (car_perevirka == 1) {
-					car_x = 0 + rand() % (14);
-					car_x = 0 + rand() % (14);
-					car_x = 0 + rand() % (14);
-
-					car_x1 = 0 + rand() % (14);
-					car_x1 = 0 + rand() % (14);
-					car_x1 = 0 + rand() % (14);
-					if (car_x == car_x1) {
-						car_x = 0 + rand() % (14);
-						car_x = 0 + rand() % (14);
-						car_x = 0 + rand() % (14);
-
-						car_x1 = 0 + rand() % (14);
-						car_x1 = 0 + rand() % (14);
-						car_x1 = 0 + rand() % (14);
-					}
-					car_perevirka = 2;
-				}
-
-				//рандомні машини і їх двіженіє 
-				if (car_y < 14) {
-					Sleep(speed);
-					perenos(car_x, car_y);
-					cout << " ";
-					car_y++;
-
-					perenos(car_x, car_y);
-					cout << "D";
-
-					//2
-					perenos(car_x1, car_y1);
-					cout << " ";
-					car_y1++;
-
-					perenos(car_x1, car_y1);
-					cout << "D";
-
-					if (car_y == 14) {
-						perenos(car_x, car_y);
-						cout << " ";
-						car_y = 0;
-
-						perenos(car_x1, car_y1);
-						cout << " ";
-						car_y1 = 0;
-
-						car_perevirka = 1;
-						speed_score--;
-						perenos(30, 3);
-						cout << "машин до нового рівня: " << speed_score;
-						if (speed >= 10) {
-							if (speed_score == 0) {
-								speed = speed - 10;
-								speed_score = 9;
-								rang++;
-								perenos(30, 2);
-								cout << "рівень швидкості: " << rang;
-
-
-							}
-						}
-
-					}
-					if (plat_y == car_y and plat_x == car_x) {
-						perenos(car_x, car_y);
-						cout << " ";
-
-						dead = 1;
-					}
-
-					if (plat_y_1 == car_y and plat_x_1 == car_x) {
-						perenos(car_x, car_y);
-						cout << " ";
-
-						dead = 1;
-
-					}
-			
-
-
-					if (plat_y == car_y1 and plat_x == car_x1) {
-						perenos(car_x1, car_y1);
-						cout << " ";
-
-						dead = 1;
-					}
-
-					if (plat_y_1 == car_y1 and plat_x_1 == car_x1) {
-						perenos(car_x1,car_y1);
-						cout << " ";
-
-						dead = 1;
-
-					}
-
-				}
-
-
-
-
-
-				//обробка клавиш 
-
-
-				GetKEY();
-
-				//клвашива в ліво
-				if (KEY[37])//left
-				{
-
-
-					if (plat_x >= 1 and plat_x_1 >= 1) {
-						perenos(plat_x, plat_y);
-						cout << " ";
-
-						perenos(plat_x_1, plat_y_1);
-						cout << " ";
-
-
-
-
-
-						plat_x--;
-						plat_x_1--;
-
-						perenos(plat_x, plat_y);
-						cout << "@";
-
-						perenos(plat_x_1, plat_y_1);
-						cout << "|";
-
-
-					}
-
-
-				}
-				//клавиша в право
-				else
-					if (KEY[39])//right
-					{
-
-						if (plat_x <= 12 and plat_x_1 <= 12) {
-							//закраска старих
-							perenos(plat_x, plat_y);
-							cout << " ";
-
-							perenos(plat_x_1, plat_y_1);
-							cout << " ";
-
-
-
-
-
-							plat_x++;
-							plat_x_1++;
-
-							perenos(plat_x, plat_y);
-							cout << "@";
-
-							perenos(plat_x_1, plat_y_1);
-							cout << "|";
-
-						}
-
-
-
-					}
-
-
-
-
-
-
-
-
-
-
-
-				if (dead == 1) {
-					perenos(30, 50);
-					cout << "ви проиграли ви збилися в машину";
-					Sleep(1000);
-					break;
-				}
-
-
-			}
-			}
-			else
-			if (lvl == 3) {
+		else
+			if (lvl == 2) {
 				gotoxy(0, 0);
 				int verh = 14;
 				int right = 14;
@@ -1993,8 +1977,7 @@ void all() {
 				int car_y = 0;
 				int car_x1 = 5;
 				int car_y1 = 0;
-				int car_x2 = 5;
-				int car_y2 = 0;
+
 				int dead = 0;
 
 				int speed = 110;
@@ -2021,10 +2004,7 @@ void all() {
 						car_x1 = 0 + rand() % (14);
 						car_x1 = 0 + rand() % (14);
 						car_x1 = 0 + rand() % (14);
-						car_x2 = 0 + rand() % (14);
-						car_x2 = 0 + rand() % (14);
-						car_x2 = 0 + rand() % (14);
-						if (car_x == car_x1 or car_x1 == car_x2 or car_x2 == car_x  ) {
+						if (car_x == car_x1) {
 							car_x = 0 + rand() % (14);
 							car_x = 0 + rand() % (14);
 							car_x = 0 + rand() % (14);
@@ -2032,9 +2012,6 @@ void all() {
 							car_x1 = 0 + rand() % (14);
 							car_x1 = 0 + rand() % (14);
 							car_x1 = 0 + rand() % (14);
-							car_x2 = 0 + rand() % (14);
-							car_x2 = 0 + rand() % (14);
-							car_x2 = 0 + rand() % (14);
 						}
 						car_perevirka = 2;
 					}
@@ -2056,13 +2033,7 @@ void all() {
 
 						perenos(car_x1, car_y1);
 						cout << "D";
-						//3
-						perenos(car_x2, car_y2);
-						cout << " ";
-						car_y2++;
 
-						perenos(car_x2, car_y2);
-						cout << "D";
 						if (car_y == 14) {
 							perenos(car_x, car_y);
 							cout << " ";
@@ -2071,9 +2042,7 @@ void all() {
 							perenos(car_x1, car_y1);
 							cout << " ";
 							car_y1 = 0;
-							perenos(car_x2, car_y2);
-							cout << " ";
-							car_y2 = 0;
+
 							car_perevirka = 1;
 							speed_score--;
 							perenos(30, 3);
@@ -2106,7 +2075,7 @@ void all() {
 
 						}
 
-					
+
 
 						if (plat_y == car_y1 and plat_x == car_x1) {
 							perenos(car_x1, car_y1);
@@ -2123,23 +2092,6 @@ void all() {
 
 						}
 
-
-						if (plat_y == car_y2 and plat_x == car_x2) {
-							perenos(car_x2, car_y2);
-							cout << " ";
-
-							dead = 1;
-						}
-
-						if (plat_y_1 == car_y2 and plat_x_1 == car_x2) {
-							perenos(car_x2, car_y2);
-							cout << " ";
-
-							dead = 1;
-
-						}
-
-
 					}
 
 
@@ -2150,7 +2102,7 @@ void all() {
 
 
 					GetKEY();
-					//1
+
 					//клвашива в ліво
 					if (KEY[37])//left
 					{
@@ -2233,6 +2185,296 @@ void all() {
 
 				}
 			}
+			else
+				if (lvl == 3) {
+					gotoxy(0, 0);
+					int verh = 14;
+					int right = 14;
+
+					for (int i = 0; i < right; i++) {
+						cout << "*";
+					}
+					cout << endl;
+					for (int j = 0; j < verh; j++) {
+						for (int i = 0; i < 14; i++) {
+							cout << " ";
+							if (i == 13) {
+								cout << "*" << endl;
+							}
+						}
+					}
+
+					for (int i = 0; i < 14; i++) {
+						cout << "*";
+					}//242
+					//інти які я використовую//
+					int perevirka = 1;
+					int plat_x = 7;
+					int plat_y = 13;
+
+
+
+					int plat_x_1 = 7;
+					int plat_y_1 = 12;
+
+
+					//набросок
+					perenos(plat_x, plat_y);
+					cout << "@";
+
+					perenos(plat_x_1, plat_y_1);
+					cout << "|";
+
+					perenos(30, 1);
+					cout << "суть ігри уварачеватися від машин";
+					perenos(20, 20);
+					//ще інти
+					int rand_car = 5;//rand_car = 0 + rand() % (12);
+					int rand_car1 = 5;//rand_car = 0 + rand() % (12);
+					int car_x = 5;
+					int car_y = 0;
+					int car_x1 = 5;
+					int car_y1 = 0;
+					int car_x2 = 5;
+					int car_y2 = 0;
+					int dead = 0;
+
+					int speed = 110;
+					int speed_score = 9;
+					int rang = 1;
+					int new_ckore = 0;
+					int car_perevirka = 1;
+					perenos(30, 2);
+					/// <summary>
+					///щочики
+					/// </summary>
+					cout << "рівень швидкості: " << rang;
+
+					perenos(30, 3);
+					cout << "машин до нового рівня: " << speed_score;
+					while (1)
+					{
+						//рандом машин
+						if (car_perevirka == 1) {
+							car_x = 0 + rand() % (14);
+							car_x = 0 + rand() % (14);
+							car_x = 0 + rand() % (14);
+
+							car_x1 = 0 + rand() % (14);
+							car_x1 = 0 + rand() % (14);
+							car_x1 = 0 + rand() % (14);
+							car_x2 = 0 + rand() % (14);
+							car_x2 = 0 + rand() % (14);
+							car_x2 = 0 + rand() % (14);
+							if (car_x == car_x1 or car_x1 == car_x2 or car_x2 == car_x) {
+								car_x = 0 + rand() % (14);
+								car_x = 0 + rand() % (14);
+								car_x = 0 + rand() % (14);
+
+								car_x1 = 0 + rand() % (14);
+								car_x1 = 0 + rand() % (14);
+								car_x1 = 0 + rand() % (14);
+								car_x2 = 0 + rand() % (14);
+								car_x2 = 0 + rand() % (14);
+								car_x2 = 0 + rand() % (14);
+							}
+							car_perevirka = 2;
+						}
+
+						//рандомні машини і їх двіженіє 
+						if (car_y < 14) {
+							Sleep(speed);
+							perenos(car_x, car_y);
+							cout << " ";
+							car_y++;
+
+							perenos(car_x, car_y);
+							cout << "D";
+
+							//2
+							perenos(car_x1, car_y1);
+							cout << " ";
+							car_y1++;
+
+							perenos(car_x1, car_y1);
+							cout << "D";
+							//3
+							perenos(car_x2, car_y2);
+							cout << " ";
+							car_y2++;
+
+							perenos(car_x2, car_y2);
+							cout << "D";
+							if (car_y == 14) {
+								perenos(car_x, car_y);
+								cout << " ";
+								car_y = 0;
+
+								perenos(car_x1, car_y1);
+								cout << " ";
+								car_y1 = 0;
+								perenos(car_x2, car_y2);
+								cout << " ";
+								car_y2 = 0;
+								car_perevirka = 1;
+								speed_score--;
+								perenos(30, 3);
+								cout << "машин до нового рівня: " << speed_score;
+								if (speed >= 10) {
+									if (speed_score == 0) {
+										speed = speed - 10;
+										speed_score = 9;
+										rang++;
+										perenos(30, 2);
+										cout << "рівень швидкості: " << rang;
+
+
+									}
+								}
+
+							}
+							if (plat_y == car_y and plat_x == car_x) {
+								perenos(car_x, car_y);
+								cout << " ";
+
+								dead = 1;
+							}
+
+							if (plat_y_1 == car_y and plat_x_1 == car_x) {
+								perenos(car_x, car_y);
+								cout << " ";
+
+								dead = 1;
+
+							}
+
+
+
+							if (plat_y == car_y1 and plat_x == car_x1) {
+								perenos(car_x1, car_y1);
+								cout << " ";
+
+								dead = 1;
+							}
+
+							if (plat_y_1 == car_y1 and plat_x_1 == car_x1) {
+								perenos(car_x1, car_y1);
+								cout << " ";
+
+								dead = 1;
+
+							}
+
+
+							if (plat_y == car_y2 and plat_x == car_x2) {
+								perenos(car_x2, car_y2);
+								cout << " ";
+
+								dead = 1;
+							}
+
+							if (plat_y_1 == car_y2 and plat_x_1 == car_x2) {
+								perenos(car_x2, car_y2);
+								cout << " ";
+
+								dead = 1;
+
+							}
+
+
+						}
+
+
+
+
+
+						//обробка клавиш 
+
+
+						GetKEY();
+						//1
+						//клвашива в ліво
+						if (KEY[37])//left
+						{
+
+
+							if (plat_x >= 1 and plat_x_1 >= 1) {
+								perenos(plat_x, plat_y);
+								cout << " ";
+
+								perenos(plat_x_1, plat_y_1);
+								cout << " ";
+
+
+
+
+
+								plat_x--;
+								plat_x_1--;
+
+								perenos(plat_x, plat_y);
+								cout << "@";
+
+								perenos(plat_x_1, plat_y_1);
+								cout << "|";
+
+
+							}
+
+
+						}
+						//клавиша в право
+						else
+							if (KEY[39])//right
+							{
+
+								if (plat_x <= 12 and plat_x_1 <= 12) {
+									//закраска старих
+									perenos(plat_x, plat_y);
+									cout << " ";
+
+									perenos(plat_x_1, plat_y_1);
+									cout << " ";
+
+
+
+
+
+									plat_x++;
+									plat_x_1++;
+
+									perenos(plat_x, plat_y);
+									cout << "@";
+
+									perenos(plat_x_1, plat_y_1);
+									cout << "|";
+
+								}
+
+
+
+							}
+
+
+
+
+
+
+
+
+
+
+
+						if (dead == 1) {
+							perenos(30, 50);
+							cout << "ви проиграли ви збилися в машину";
+							Sleep(1000);
+							break;
+						}
+
+
+					}
+				}
 
 	}
 	//калькурятор калорій
@@ -2352,7 +2594,7 @@ void all() {
 		}
 
 	}
-	
+
 }
 
 //новий
@@ -2361,32 +2603,26 @@ void all() {
 //конец
 
 
-
-
-
-
-
-
-
-
-
-
-
-//інт через який визвав основну ф-цію
 int main()
 {
 	setlocale(LC_ALL, "Ukrainian");
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
 	srand(time(NULL));
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	SetConsoleCP(CP_UTF8);
-	SetConsoleOutputCP(CP_UTF8);
+
 	all();
 
 
 }
+
+
+
+// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
+
+
+
+
+//інт через який визвав основну ф-цію
 
 
 
