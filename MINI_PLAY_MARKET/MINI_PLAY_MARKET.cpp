@@ -128,7 +128,28 @@ void ramka1() {
 
 
 //основна ф-ція
+void ramka5() {
 
+	perenos(0, 3000);
+	for (int i = 0; i < 24; i++) {
+		cout << "*";
+	}
+
+	for (int j = 3001; j < 3013; j++) {
+		perenos(0, j);
+		for (int i = 0; i < 24; i++) {
+
+			perenos(i, j);
+			if (i == 23) {
+				cout << "*" << endl;
+			}
+		}
+	}
+	perenos(0, 3012);
+	for (int i = 0; i < 24; i++) {
+		cout << "*";
+	}
+}
 
 
 
@@ -326,12 +347,7 @@ void all() {
 				perenos(25, 1205);
 				cout << "якщо машина заходить за вас то +10% до нового уровня якщо збивається то ви програли";
 
-				perenos(25, 1206);
-				cout << "програма  3 калорії її правила : ";
-
-
-				perenos(25, 1207);
-				cout << "правил немає тому що там все розписано і це не гра ";
+			
 
 
 				Sleep(20000);
@@ -369,8 +385,7 @@ void all() {
 		gotoxy(25, 804);
 		cout << "щоб увійти в гру 2 нажміть 3";
 
-		gotoxy(25, 805);
-		cout << "щоб увійти в програму 3 нажміть 4";
+	
 
 		gotoxy(25, 806);
 		cout << "ваш вибір: ";
@@ -563,6 +578,7 @@ void all() {
 		if (regim == 1) {
 			//рамки гри
 			gotoxy(0, 0);
+			int mozno = 0;
 			int verh = 13;
 			int right = 25;
 
@@ -635,9 +651,9 @@ void all() {
 			//генератори рандомних чисел
 			x_y = 1 + rand() % (2);
 			x_y1 = 1 + rand() % (2);
-
+			int anti = 0;
 			
-			while (1)
+			while (anti != 1)
 			{
 				//х y мяча
 				ConsoleCursorVisible(false, 100);
@@ -654,15 +670,17 @@ void all() {
 
 
 				//мяч
-				if (perevirka == 1) {
-					
-					if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
+				
+				if (mozno == 0) {
+					if (perevirka == 1) {
 
-						or_or = 1 + rand() % (3);
+						if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
 
-					}
-					
-						
+							or_or = 1 + rand() % (3);
+
+						}
+
+
 						if (obman_y == i or obman_y == i1 or obman_y == i2) {
 							if (obman_x == 3) {
 								or_or = 1 + rand() % (3);
@@ -673,165 +691,7 @@ void all() {
 
 
 
-						if (or_or == 1) {
-							if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
-
-								if (obman_y == i or obman_y == i1 or obman_y == i2) {
-									if (obman_x == 3) {
-										perevirka = 1;
-									}
-								}
-
-
-								perenos(obman_x, obman_y);
-								cout << " ";
-
-								obman_x++;
-								obman_y++;
-								if (obman_x >= 24) {
-									obman_x = 23;
-								}
-								perenos(obman_x, obman_y);
-								cout << "o";
-							 
-								Sleep(85);
-
-
-
-
-							}
-						}
-
-						else 
-							if (or_or == 2) {
-								if (obman_y < 14 and obman_x < 24 and obman_y > 0 ) {
-
-									if (obman_y == i or obman_y == i1 or obman_y == i2) {
-										if (obman_x == 3) {
-											perevirka = 1;
-										}
-									}
-
-
-									perenos(obman_x, obman_y);
-									cout << " ";
-									obman_x++;
-									obman_x++;
-									obman_y++;
-									if (obman_x >= 24) {
-										obman_x = 23;
-									}
-									perenos(obman_x, obman_y);
-									cout << "o";
-								 
-
-									Sleep(85);
-
-
-
-
-								}
-								if (obman_x == 21) {
-									or_or = 1;
-								}
-							}
-
-							else
-								if (or_or == 3) {
-									if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
-
-										if (obman_y == i or obman_y == i1 or obman_y == i2) {
-											if (obman_x == 3) {
-												perevirka = 1;
-											}
-										}
-
-
-										perenos(obman_x, obman_y);
-										cout << " ";
-										
-										obman_x++;
-										obman_y++;
-										obman_y++;
-										if (obman_x >= 24) {
-											obman_x = 23;
-										}
-										perenos(obman_x, obman_y);
-										cout << "o";
-										 
-
-										Sleep(85);
-
-
-
-
-									}
-									if (obman_y == 11) {
-										or_or = 1;
-									}
-								}
-
-
-
-						if (obman_y == 12) {
-							x_y1 = 2;
-
-						}
-					
-						if (obman_x == 22) {
-							perevirka = 2;
-						}
-
-
-
-
-						//50\50
-
-
-
-
-
-
-
-
-					}
-					//право-верх
-					if (x_y1 == 2) {
-
-						if (or_or == 1) {
-							if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
-
-								if (obman_y == i or obman_y == i1 or obman_y == i2) {
-									if (obman_x == 3) {
-										perevirka = 1;
-									}
-								}
-
-
-								perenos(obman_x, obman_y);
-								cout << " ";
-
-								obman_x++;
-								obman_y--;
-								if (obman_x >= 24) {
-									obman_x = 23;
-								}
-								if (obman_y == 0) {
-									obman_y = 1;
-								}
-								perenos(obman_x, obman_y);
-								cout << "o";
-								 
-								Sleep(85);
-
-
-
-
-							}
-						}
-
-						else
-							if (or_or == 2) {
+							if (or_or == 1) {
 								if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
 
 									if (obman_y == i or obman_y == i1 or obman_y == i2) {
@@ -843,7 +703,132 @@ void all() {
 
 									perenos(obman_x, obman_y);
 									cout << " ";
+
 									obman_x++;
+									obman_y++;
+									if (obman_x >= 24) {
+										obman_x = 23;
+									}
+									perenos(obman_x, obman_y);
+									cout << "o";
+
+									Sleep(85);
+
+
+
+
+								}
+							}
+
+							else
+								if (or_or == 2) {
+									if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
+
+										if (obman_y == i or obman_y == i1 or obman_y == i2) {
+											if (obman_x == 3) {
+												perevirka = 1;
+											}
+										}
+
+
+										perenos(obman_x, obman_y);
+										cout << " ";
+										obman_x++;
+										obman_x++;
+										obman_y++;
+										if (obman_x >= 24) {
+											obman_x = 23;
+										}
+										perenos(obman_x, obman_y);
+										cout << "o";
+
+
+										Sleep(85);
+
+
+
+
+									}
+									if (obman_x == 21) {
+										or_or = 1;
+									}
+								}
+
+								else
+									if (or_or == 3) {
+										if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
+
+											if (obman_y == i or obman_y == i1 or obman_y == i2) {
+												if (obman_x == 3) {
+													perevirka = 1;
+												}
+											}
+
+
+											perenos(obman_x, obman_y);
+											cout << " ";
+
+											obman_x++;
+											obman_y++;
+											obman_y++;
+											if (obman_x >= 24) {
+												obman_x = 23;
+											}
+											perenos(obman_x, obman_y);
+											cout << "o";
+
+
+											Sleep(85);
+
+
+
+
+										}
+										if (obman_y == 11) {
+											or_or = 1;
+										}
+									}
+
+
+
+							if (obman_y == 12) {
+								x_y1 = 2;
+
+							}
+
+							if (obman_x == 22) {
+								perevirka = 2;
+							}
+
+
+
+
+							//50\50
+
+
+
+
+
+
+
+
+						}
+						//право-верх
+						if (x_y1 == 2) {
+
+							if (or_or == 1) {
+								if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
+
+									if (obman_y == i or obman_y == i1 or obman_y == i2) {
+										if (obman_x == 3) {
+											perevirka = 1;
+										}
+									}
+
+
+									perenos(obman_x, obman_y);
+									cout << " ";
+
 									obman_x++;
 									obman_y--;
 									if (obman_x >= 24) {
@@ -854,7 +839,6 @@ void all() {
 									}
 									perenos(obman_x, obman_y);
 									cout << "o";
-									
 
 									Sleep(85);
 
@@ -862,14 +846,12 @@ void all() {
 
 
 								}
-								if (obman_x == 21) {
-									or_or = 1;
-								}
 							}
 
 							else
-								if (or_or == 3) {
-									if (obman_y < 13 and obman_x < 23 and obman_y > 0) {
+								if (or_or == 2) {
+									if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
+
 										if (obman_y == i or obman_y == i1 or obman_y == i2) {
 											if (obman_x == 3) {
 												perevirka = 1;
@@ -877,22 +859,20 @@ void all() {
 										}
 
 
-
 										perenos(obman_x, obman_y);
 										cout << " ";
-
+										obman_x++;
 										obman_x++;
 										obman_y--;
 										if (obman_x >= 24) {
 											obman_x = 23;
 										}
-										obman_y--;
 										if (obman_y == 0) {
 											obman_y = 1;
 										}
 										perenos(obman_x, obman_y);
 										cout << "o";
-										
+
 
 										Sleep(85);
 
@@ -900,133 +880,137 @@ void all() {
 
 
 									}
-									if (obman_y == 2) {
+									if (obman_x == 21) {
 										or_or = 1;
 									}
-
-									if (obman_y == 0) {
-										cout << "*";
-										perenos(obman_x, 1);
-										cout << "o";
-										x_y1 = 1;
-									}
 								}
 
+								else
+									if (or_or == 3) {
+										if (obman_y < 13 and obman_x < 23 and obman_y > 0) {
+											if (obman_y == i or obman_y == i1 or obman_y == i2) {
+												if (obman_x == 3) {
+													perevirka = 1;
+												}
+											}
 
 
 
-					}
+											perenos(obman_x, obman_y);
+											cout << " ";
+
+											obman_x++;
+											obman_y--;
+											if (obman_x >= 24) {
+												obman_x = 23;
+											}
+											obman_y--;
+											if (obman_y == 0) {
+												obman_y = 1;
+											}
+											perenos(obman_x, obman_y);
+											cout << "o";
 
 
-					if (obman_y == 12) {
-						x_y1 = 2;
+											Sleep(85);
 
-					}
-					if (obman_y == 1) {
-						x_y1 = 1;
 
-					}
-					if (obman_x == 22) {
-						perevirka = 2;
-					}
-					if (obman_y == 140) {
-						for (int i = 0; i < right; i++) {
+
+
+										}
+										if (obman_y == 2) {
+											or_or = 1;
+										}
+
+										if (obman_y == 0) {
+											cout << "*";
+											perenos(obman_x, 1);
+											cout << "o";
+											x_y1 = 1;
+										}
+									}
+
+
+
+
+						}
+
+
+						if (obman_y == 12) {
+							x_y1 = 2;
+
+						}
+						if (obman_y == 1) {
+							x_y1 = 1;
+
+						}
+						if (obman_x == 22) {
+							perevirka = 2;
+						}
+						if (obman_y == 140) {
+							for (int i = 0; i < right; i++) {
+								cout << "*";
+							}
+
+							x_y1 = 1 + rand() % (2);
+							obman_y = 13;
+
+						}
+
+
+
+						if (obman_x == 0) {
+							perevirka = 2;
+						}
+
+						if (obman_y == 0) {
 							cout << "*";
+							perenos(obman_x, 1);
+							cout << "o";
+							x_y1 = 1;
 						}
 
-						x_y1 = 1 + rand() % (2);
-						obman_y = 13;
-
 					}
 
+					else if (perevirka == 2) {
+						if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
 
-
-					if (obman_x == 0) {
-						perevirka = 2;
-					}
-
-					if (obman_y == 0) {
-						cout << "*";
-						perenos(obman_x, 1);
-						cout << "o";
-						x_y1 = 1;
-					}
-
-				}
-
-				else if (perevirka == 2) {
-					if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
-
-						or_or = 1 + rand() % (3);
-
-					}
-
-
-					if (obman_y == i or obman_y == i1 or obman_y == i2) {
-						if (obman_x == 3) {
 							or_or = 1 + rand() % (3);
+
 						}
-					}
 
 
-					//ліво-верх
-					if (x_y == 1) {
-
-
-						if (or_or == 1) {
-							if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
-
-								if (obman_y == i or obman_y == i1 or obman_y == i2) {
-									if (obman_x == 3) {
-										perevirka = 1;
-									}
-								}
-
-								perenos(obman_x, obman_y);
-								cout << " ";
-
-								obman_x--;
-								obman_y--;
-								if (obman_y == 0) {
-									obman_y = 1;
-								}
-								perenos(obman_x, obman_y);
-								cout << "o";
-								
-
-								Sleep(85);
-
-
-
-
+						if (obman_y == i or obman_y == i1 or obman_y == i2) {
+							if (obman_x == 3) {
+								or_or = 1 + rand() % (3);
 							}
 						}
 
-						else
-							if (or_or == 2) {
+
+						//ліво-верх
+						if (x_y == 1) {
+
+
+							if (or_or == 1) {
 								if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
+
 									if (obman_y == i or obman_y == i1 or obman_y == i2) {
 										if (obman_x == 3) {
 											perevirka = 1;
 										}
 									}
 
-
-
 									perenos(obman_x, obman_y);
 									cout << " ";
-									obman_x--;
+
 									obman_x--;
 									obman_y--;
 									if (obman_y == 0) {
 										obman_y = 1;
 									}
-									if (obman_x == 0) {
-										obman_x = 1;
-									}
 									perenos(obman_x, obman_y);
 									cout << "o";
-									
+
 
 									Sleep(85);
 
@@ -1034,15 +1018,11 @@ void all() {
 
 
 								}
-								if (obman_x == 2) {
-									or_or = 1;
-								}
 							}
 
 							else
-								if (or_or == 3) {
-									if (obman_y < 14 and obman_x > 1 and obman_y > 0 and obman_y <= 11) {
-
+								if (or_or == 2) {
+									if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
 										if (obman_y == i or obman_y == i1 or obman_y == i2) {
 											if (obman_x == 3) {
 												perevirka = 1;
@@ -1050,17 +1030,21 @@ void all() {
 										}
 
 
+
 										perenos(obman_x, obman_y);
 										cout << " ";
-
 										obman_x--;
-										obman_y--;
+										obman_x--;
 										obman_y--;
 										if (obman_y == 0) {
 											obman_y = 1;
 										}
+										if (obman_x == 0) {
+											obman_x = 1;
+										}
 										perenos(obman_x, obman_y);
 										cout << "o";
+
 
 										Sleep(85);
 
@@ -1068,89 +1052,97 @@ void all() {
 
 
 									}
-									if (obman_y == 11) {
+									if (obman_x == 2) {
 										or_or = 1;
 									}
 								}
 
+								else
+									if (or_or == 3) {
+										if (obman_y < 14 and obman_x > 1 and obman_y > 0 and obman_y <= 11) {
+
+											if (obman_y == i or obman_y == i1 or obman_y == i2) {
+												if (obman_x == 3) {
+													perevirka = 1;
+												}
+											}
+
+
+											perenos(obman_x, obman_y);
+											cout << " ";
+
+											obman_x--;
+											obman_y--;
+											obman_y--;
+											if (obman_y == 0) {
+												obman_y = 1;
+											}
+											perenos(obman_x, obman_y);
+											cout << "o";
+
+											Sleep(85);
 
 
 
 
-
-
-
-
-
-
-
-
-						if (obman_y == 12) {
-							x_y = 1;
-
-						}
-
-						if (obman_x == 1) {
-							perevirka = 1;
-						}
-
-
-						if (obman_y == 1) {
-							x_y = 2;
-
-						}
-						if (obman_y == -1) {
-							perenos(0, 0);
-							for (int i = 0; i < right; i++) {
-								cout << "*";
-							}
-							obman_y = 1;
-
-							x_y = 1 + rand() % (2);
-
-						}
-						if (obman_y == 0) {
-							cout << "*";
-							perenos(obman_x, 1);
-							
-							x_y = 2;
-
-						}
-						if (obman_x == 0) {
-							x_y = perevirka = 1;
-
-						}
-
-					}
-					//ліво низ
-					if (x_y == 2) {
-						if (or_or == 1) {
-							if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
-
-								if (obman_y == i or obman_y == i1 or obman_y == i2) {
-									if (obman_x == 3) {
-										perevirka = 1;
+										}
+										if (obman_y == 11) {
+											or_or = 1;
+										}
 									}
-								}
-
-
-								perenos(obman_x, obman_y);
-								cout << " ";
-
-								obman_x--;
-								obman_y++;
-								perenos(obman_x, obman_y);
-								cout << "o";
-								Sleep(85);
 
 
 
+
+
+
+
+
+
+
+
+
+
+							if (obman_y == 12) {
+								x_y = 1;
 
 							}
-						}
 
-						else
-							if (or_or == 2) {
+							if (obman_x == 1) {
+								perevirka = 1;
+							}
+
+
+							if (obman_y == 1) {
+								x_y = 2;
+
+							}
+							if (obman_y == -1) {
+								perenos(0, 0);
+								for (int i = 0; i < right; i++) {
+									cout << "*";
+								}
+								obman_y = 1;
+
+								x_y = 1 + rand() % (2);
+
+							}
+							if (obman_y == 0) {
+								cout << "*";
+								perenos(obman_x, 1);
+
+								x_y = 2;
+
+							}
+							if (obman_x == 0) {
+								x_y = perevirka = 1;
+
+							}
+
+						}
+						//ліво низ
+						if (x_y == 2) {
+							if (or_or == 1) {
 								if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
 
 									if (obman_y == i or obman_y == i1 or obman_y == i2) {
@@ -1162,7 +1154,7 @@ void all() {
 
 									perenos(obman_x, obman_y);
 									cout << " ";
-									obman_x--;
+
 									obman_x--;
 									obman_y++;
 									perenos(obman_x, obman_y);
@@ -1173,13 +1165,10 @@ void all() {
 
 
 								}
-								if (obman_x == 2) {
-									or_or = 1;
-								}
 							}
 
 							else
-								if (or_or == 3) {
+								if (or_or == 2) {
 									if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
 
 										if (obman_y == i or obman_y == i1 or obman_y == i2) {
@@ -1191,9 +1180,8 @@ void all() {
 
 										perenos(obman_x, obman_y);
 										cout << " ";
-
 										obman_x--;
-										obman_y++;
+										obman_x--;
 										obman_y++;
 										perenos(obman_x, obman_y);
 										cout << "o";
@@ -1203,29 +1191,103 @@ void all() {
 
 
 									}
-									if (obman_y == 11) {
+									if (obman_x == 2) {
 										or_or = 1;
 									}
 								}
 
-						if (obman_y == 12) {
-							x_y = 1;
+								else
+									if (or_or == 3) {
+										if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
+
+											if (obman_y == i or obman_y == i1 or obman_y == i2) {
+												if (obman_x == 3) {
+													perevirka = 1;
+												}
+											}
+
+
+											perenos(obman_x, obman_y);
+											cout << " ";
+
+											obman_x--;
+											obman_y++;
+											obman_y++;
+											perenos(obman_x, obman_y);
+											cout << "o";
+											Sleep(85);
+
+
+
+
+										}
+										if (obman_y == 11) {
+											or_or = 1;
+										}
+									}
+
+							if (obman_y == 12) {
+								x_y = 1;
+
+							}
+
+							if (obman_x == 1) {
+								perevirka = 1;
+							}
+							if (obman_y == -1) {
+								perenos(0, 0);
+								for (int i = 0; i < right; i++) {
+									cout << "*";
+								}
+								obman_y = 1;
+
+								x_y = 1 + rand() % (2);
+
+							}
+
+							if (obman_x == 0) {
+								x_y = perevirka = 1;
+
+							}
 
 						}
 
-						if (obman_x == 1) {
+						if (obman_y == i or obman_y == i1 or obman_y == i2) {
+							if (obman_x == 3) {
+								perevirka = 1;
+								chochik = chochik + 100;
+								gotoxy(80, 0);
+								cout << "щочик балов:  ";
+								gotoxy(93, 0);
+								cout << chochik;
+							}
+
+						}
+
+						if (obman_x < 2) {
+
+							chochik = chochik - 50;
+							gotoxy(80, 0);
+							cout << "щочик балов:  ";
+							gotoxy(93, 0);
+							cout << chochik;
+						}
+
+
+
+						if (obman_x == 0) {
 							perevirka = 1;
 						}
-						if (obman_y == -1) {
-							perenos(0, 0);
-							for (int i = 0; i < right; i++) {
-								cout << "*";
+
+
+						if (obman_y == i or obman_y == i1 or obman_y == i2) {
+							if (obman_x == 3) {
+								perevirka = 1;
 							}
-							obman_y = 1;
-
-							x_y = 1 + rand() % (2);
-
 						}
+
+
+
 
 						if (obman_x == 0) {
 							x_y = perevirka = 1;
@@ -1234,49 +1296,6 @@ void all() {
 
 					}
 
-					if (obman_y == i or obman_y == i1 or obman_y == i2) {
-						if (obman_x == 3) {
-							perevirka = 1;
-							chochik = chochik + 100;
-							gotoxy(80, 0);
-							cout << "щочик балов:  ";
-							gotoxy(93, 0);
-							cout << chochik;
-						}
-
-					}
-
-					if (obman_x < 2) {
-
-						chochik = chochik - 50;
-						gotoxy(80, 0);
-						cout << "щочик балов:  ";
-						gotoxy(93, 0);
-						cout << chochik;
-					}
-
-
-
-					if (obman_x == 0) {
-						perevirka = 1;
-					}
-
-
-					if (obman_y == i or obman_y == i1 or obman_y == i2) {
-						if (obman_x == 3) {
-							perevirka = 1;
-						}
-					}
-
-					
-					
-
-					if (obman_x == 0) {
-						x_y = perevirka = 1;
-
-					}
-
-				}
 
 
 
@@ -1284,72 +1303,36 @@ void all() {
 
 
 
+					GetKEY();
 
-				GetKEY();
-
-				//обрлбка верх
-
-
-				//клавиша верх
-				if (KEY[38])
-				{
-
-					if (i >= verh - 11) {
-						//закраска старих
-						i++;
-						i1++;
-						i2++;
-						perenos(2, i);
-						cout << " ";
-						perenos(2, i1);
-						cout << " ";
-
-						perenos(2, i2);
-						cout << " ";
-						//+ в верх
-						i--;
-						i1--;
-						i2--;
-
-						i--;
-						i1--;
-						i2--;
-						perenos(2, i);
-						cout << "*";
-						perenos(2, i1);
-						cout << "*";
-
-						perenos(2, i2);
-						cout << "*";
-
-					}
+					//обрлбка верх
 
 
-				}
-				//клавиша вниз
-				else
-					if (KEY[40])
+					//клавиша верх
+					if (KEY[38])
 					{
-						if (i <= verh - 3) {
+
+						if (i >= verh - 11) {
 							//закраска старих
+							i++;
+							i1++;
+							i2++;
+							perenos(2, i);
+							cout << " ";
+							perenos(2, i1);
+							cout << " ";
+
+							perenos(2, i2);
+							cout << " ";
+							//+ в верх
+							i--;
+							i1--;
+							i2--;
+
 							i--;
 							i1--;
 							i2--;
 							perenos(2, i);
-							cout << " ";
-							perenos(2, i1);
-							cout << " ";
-							perenos(2, i2);
-							cout << " ";
-							//+ в верх
-							i++;
-							i1++;
-							i2++;
-
-							i++;
-							i1++;
-							i2++;
-							perenos(2, i);
 							cout << "*";
 							perenos(2, i1);
 							cout << "*";
@@ -1360,12 +1343,236 @@ void all() {
 						}
 
 
-
 					}
+					//клавиша вниз
+					else
+						if (KEY[40])
+						{
+							if (i <= verh - 3) {
+								//закраска старих
+								i--;
+								i1--;
+								i2--;
+								perenos(2, i);
+								cout << " ";
+								perenos(2, i1);
+								cout << " ";
+								perenos(2, i2);
+								cout << " ";
+								//+ в верх
+								i++;
+								i1++;
+								i2++;
+
+								i++;
+								i1++;
+								i2++;
+								perenos(2, i);
+								cout << "*";
+								perenos(2, i1);
+								cout << "*";
+
+								perenos(2, i2);
+								cout << "*";
+
+							}
 
 
-				//обрлбка верх 112
 
+						}
+				}
+				int wi = 1;
+				if (KEY[16])
+				{
+					mozno = 1;
+					wi = 0;
+				}
+				if (wi == 0) {
+					ramka5();
+
+					SetColor(RED_FADE, PINK_FADE);
+					perenos(6, 3001);
+					cout << "ВОЙТИ В МЕНЮ";
+					SetColor(RED_FADE, BLACK);
+					perenos(8, 3002);
+					cout << "EXIT";
+
+					int what_1 = 1;
+					int true_false = 1;
+
+
+
+
+
+
+
+
+					int gde = 3001;
+
+					while (true_false != 0) {
+						if (what_1 == 1) {
+							perenos(0, 3000);
+							GetKEY();
+
+							if (KEY[38])
+							{
+								gde = 3001;
+								if (gde == 3001) {
+									for (int i = 0; i < 23; i++) {
+										perenos(i, gde);
+										SetColor(RED_FADE, BLACK);
+										cout << " ";
+									}
+									perenos(6, gde);
+
+									cout << "ВОЙТИ В МЕНЮ";
+
+
+
+
+
+
+
+
+
+									perenos(0, gde);
+
+
+									for (int i = 0; i < 23; i++) {
+										perenos(i, gde);
+										SetColor(RED_FADE, PINK_FADE);
+										cout << " ";
+									}
+									perenos(6, gde);
+									cout << "ВОЙТИ В МЕНЮ";
+
+								}
+
+
+								if (gde == 3002) {
+
+									for (int i = 0; i < 23; i++) {
+										perenos(i, 3001);
+										SetColor(RED_FADE, BLACK);
+										cout << " ";
+									}
+									perenos(6, 3001);
+									cout << "ВОЙТИ В МЕНЮ";
+									gde--;
+								}
+								else
+									if (gde == 3001) {
+
+										for (int i = 0; i < 23; i++) {
+											perenos(i, 3002);
+											SetColor(RED_FADE, BLACK);
+											cout << " ";
+										}
+										perenos(8, 3002);
+
+										cout << "EXIT";
+										gde++;
+									}
+
+
+							}
+							//клавиша вниз
+							else
+								if (KEY[40])
+								{
+									gde = 3002;
+									if (gde == 3002) {
+
+										for (int i = 0; i < 23; i++) {
+											perenos(i, gde);
+											SetColor(RED_FADE, BLACK);
+											cout << " ";
+										}
+										perenos(8, gde);
+										cout << "EXIT";
+
+
+
+
+
+
+
+
+
+										perenos(0, gde);
+
+
+										for (int i = 0; i < 23; i++) {
+											perenos(i, gde);
+											SetColor(RED_FADE, PINK_FADE);
+											cout << " ";
+										}
+										perenos(8, gde);
+										cout << "EXIT";
+
+									}
+
+									if (gde == 3002) {
+
+										for (int i = 0; i < 23; i++) {
+											perenos(i, 3001);
+											SetColor(RED_FADE, BLACK);
+											cout << " ";
+										}
+										perenos(6, 3001);
+										cout << "ВОЙТИ В МЕНЮ";
+										gde--;
+									}
+									else
+										if (gde == 3001) {
+
+											for (int i = 0; i < 23; i++) {
+												perenos(i, 3002);
+												SetColor(RED_FADE, BLACK);
+												cout << " ";
+											}
+											perenos(8, 3002);
+
+											cout << "EXIT";
+											gde++;
+										}
+								}
+								else
+									if (KEY[18])
+									{
+										if (gde == 3001) {
+											what_1 = 2;
+										}
+										else if (gde == 3002) {
+											what_1 = 3;
+										}
+
+									}
+
+
+
+
+
+									else if (what_1 == 2) {
+										mozno = 1;
+										wi = 1;
+										what = 1;
+									}
+									else if (what_1 == 3) {
+
+										break;
+									}
+
+
+
+							if (KEY[27])
+							{
+								wi = 1;
+								mozno = 0;
+							}
+						}
+					}
+				}
 			}
 			//обробка мяча
 
@@ -1375,6 +1582,8 @@ void all() {
 
 		if (regim == 2) {
 			gotoxy(0, 0);
+			int mozno = 0;
+			int anti = 0;
 			int verh = 13;
 			int right = 25;
 
@@ -1451,13 +1660,10 @@ void all() {
 			x_y = 1 + rand() % (2);
 			x_y1 = 1 + rand() % (2);
 			int or_or = 1;
-			while (1)
+			while (anti != 1)
 			{
 				//х y мяча
 				ConsoleCursorVisible(false, 100);
-				
-
-
 				perenos(2, i);
 				cout << "*";
 
@@ -1466,7 +1672,8 @@ void all() {
 
 				perenos(2, i2);
 				cout << "*";
-
+			
+				
 				perenos(20, i_1);
 				cout << "*";
 
@@ -1476,82 +1683,43 @@ void all() {
 				perenos(20, i2_1);
 				cout << "*";
 
-				perenos(100, 20);
+				perenos(100, 10);
 				cout << obman_x << "  " << obman_y;
-
-
 				//мяч
-				if (perevirka == 1) {
-					left_or_right = 1;
-					if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
+				int right_left = 0;
+				if (mozno == 0) {
+					if (perevirka == 1) {
+						left_or_right = 1;
+						if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
 
-						or_or = 1 + rand() % (3);
-
-					}
-
-
-					if (obman_y == i or obman_y == i1 or obman_y == i2) {
-						if (obman_x == 3) {
 							or_or = 1 + rand() % (3);
+
 						}
-					}
-
-					if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-						if (obman_x == 3) {
-							or_or = 1 + rand() % (3);
-						}
-					}
 
 
-					if (x_y1 == 1) {
-
-
-
-						if (or_or == 1) {
-							if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
-
-								if (obman_y == i or obman_y == i1 or obman_y == i2) {
-									if (obman_x == 3) {
-										perevirka = 1;
-									}
-								}
-
-								if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-									if (obman_x == 19) {
-										perevirka = 2;
-									}
-								}
-
-								perenos(obman_x, obman_y);
-								cout << " ";
-
-								obman_x++;
-								obman_y++;
-								if (obman_x >= 24) {
-									obman_x = 23;
-								}
-								perenos(obman_x, obman_y);
-								cout << "o";
-
-								Sleep(85);
-
-
-
-
+						if (obman_y == i or obman_y == i1 or obman_y == i2) {
+							if (obman_x == 3) {
+								or_or = 1 + rand() % (3);
 							}
 						}
 
-						else
-							if (or_or == 2) {
-								if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
+						if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
+							if (obman_x == 19) {
+								or_or = 1 + rand() % (3);
+							}
+						}
+						if (x_y1 == 1) {
 
+
+
+							if (or_or == 1) {
+								if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
 
 									if (obman_y == i or obman_y == i1 or obman_y == i2) {
 										if (obman_x == 3) {
 											perevirka = 1;
 										}
 									}
-
 									if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
 										if (obman_x == 19) {
 											perevirka = 2;
@@ -1560,7 +1728,7 @@ void all() {
 
 									perenos(obman_x, obman_y);
 									cout << " ";
-									obman_x++;
+
 									obman_x++;
 									obman_y++;
 									if (obman_x >= 24) {
@@ -1569,29 +1737,23 @@ void all() {
 									perenos(obman_x, obman_y);
 									cout << "o";
 
-
 									Sleep(85);
 
 
 
 
 								}
-								if (obman_x == 21) {
-									or_or = 1;
-								}
 							}
 
 							else
-								if (or_or == 3) {
+								if (or_or == 2) {
 									if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
-
 
 										if (obman_y == i or obman_y == i1 or obman_y == i2) {
 											if (obman_x == 3) {
 												perevirka = 1;
 											}
 										}
-
 										if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
 											if (obman_x == 19) {
 												perevirka = 2;
@@ -1600,9 +1762,8 @@ void all() {
 
 										perenos(obman_x, obman_y);
 										cout << " ";
-
 										obman_x++;
-										obman_y++;
+										obman_x++;
 										obman_y++;
 										if (obman_x >= 24) {
 											obman_x = 23;
@@ -1617,436 +1778,271 @@ void all() {
 
 
 									}
-									if (obman_y == 11) {
+									if (obman_x == 21) {
 										or_or = 1;
 									}
 								}
 
+								else
+									if (or_or == 3) {
+										if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
+
+											if (obman_y == i or obman_y == i1 or obman_y == i2) {
+												if (obman_x == 3) {
+													perevirka = 1;
+												}
+											}
+											if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
+												if (obman_x == 19) {
+													perevirka = 2;
+												}
+											}
+
+											perenos(obman_x, obman_y);
+											cout << " ";
+
+											obman_x++;
+											obman_y++;
+											obman_y++;
+											if (obman_x >= 24) {
+												obman_x = 23;
+											}
+											perenos(obman_x, obman_y);
+											cout << "o";
+
+
+											Sleep(85);
+
+
+
+
+										}
+										if (obman_y == 11) {
+											or_or = 1;
+										}
+									}
+
+
+
+							if (obman_y == 12) {
+								x_y1 = 2;
+
+							}
+
+							if (obman_x == 22) {
+								perevirka = 2;
+							}
+
+
+
+
+							//50\50
+
+
+
+
+
+
+
+
+						}
+						//право-верх
+						if (x_y1 == 2) {
+
+							if (or_or == 1) {
+								if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
+
+									if (obman_y == i or obman_y == i1 or obman_y == i2) {
+										if (obman_x == 3) {
+											perevirka = 1;
+										}
+									}
+
+									if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
+										if (obman_x == 19) {
+											perevirka = 2;
+										}
+									}
+									perenos(obman_x, obman_y);
+									cout << " ";
+
+									obman_x++;
+									obman_y--;
+									if (obman_x >= 24) {
+										obman_x = 23;
+									}
+									if (obman_y == 0) {
+										obman_y = 1;
+									}
+									perenos(obman_x, obman_y);
+									cout << "o";
+
+									Sleep(85);
+
+
+
+
+								}
+							}
+
+							else
+								if (or_or == 2) {
+									if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
+
+										if (obman_y == i or obman_y == i1 or obman_y == i2) {
+											if (obman_x == 3) {
+												perevirka = 1;
+											}
+										}
+										if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
+											if (obman_x == 19) {
+												perevirka = 2;
+											}
+										}
+
+										perenos(obman_x, obman_y);
+										cout << " ";
+										obman_x++;
+										obman_x++;
+										obman_y--;
+										if (obman_x >= 24) {
+											obman_x = 23;
+										}
+										if (obman_y == 0) {
+											obman_y = 1;
+										}
+										perenos(obman_x, obman_y);
+										cout << "o";
+
+
+										Sleep(85);
+
+
+
+
+									}
+									if (obman_x == 21) {
+										or_or = 1;
+									}
+								}
+
+								else
+									if (or_or == 3) {
+										if (obman_y < 13 and obman_x < 23 and obman_y > 0) {
+											if (obman_y == i or obman_y == i1 or obman_y == i2) {
+												if (obman_x == 3) {
+													perevirka = 1;
+												}
+											}
+											if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
+												if (obman_x == 19) {
+													perevirka = 2;
+												}
+											}
+
+
+											perenos(obman_x, obman_y);
+											cout << " ";
+
+											obman_x++;
+											obman_y--;
+											if (obman_x >= 24) {
+												obman_x = 23;
+											}
+											obman_y--;
+											if (obman_y == 0) {
+												obman_y = 1;
+											}
+											perenos(obman_x, obman_y);
+											cout << "o";
+
+
+											Sleep(85);
+
+
+
+
+										}
+										if (obman_y == 2) {
+											or_or = 1;
+										}
+
+										if (obman_y == 0) {
+											cout << "*";
+											perenos(obman_x, 1);
+											cout << "o";
+											x_y1 = 1;
+										}
+									}
+
+
+
+
+						}
 
 
 						if (obman_y == 12) {
 							x_y1 = 2;
 
 						}
+						if (obman_y == 1) {
+							x_y1 = 1;
 
+						}
 						if (obman_x == 22) {
 							perevirka = 2;
 						}
-
-
-
-
-						//50\50
-
-
-
-
-
-
-
-
-					}
-					//право-верх
-					if (x_y1 == 2) {
-
-						if (or_or == 1) {
-							if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
-
-
-								if (obman_y == i or obman_y == i1 or obman_y == i2) {
-									if (obman_x == 3) {
-										perevirka = 1;
-									}
-								}
-
-								if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-									if (obman_x == 19) {
-										perevirka = 2;
-									}
-								}
-
-								perenos(obman_x, obman_y);
-								cout << " ";
-
-								obman_x++;
-								obman_y--;
-								if (obman_x >= 24) {
-									obman_x = 23;
-								}
-								if (obman_y == 0) {
-									obman_y = 1;
-								}
-								perenos(obman_x, obman_y);
-								cout << "o";
-
-								Sleep(85);
-
-
-
-
-							}
-						}
-
-						else
-							if (or_or == 2) {
-								if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
-
-
-									if (obman_y == i or obman_y == i1 or obman_y == i2) {
-										if (obman_x == 3) {
-											perevirka = 1;
-										}
-									}
-
-									if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-										if (obman_x == 19) {
-											perevirka = 2;
-										}
-									}
-
-									perenos(obman_x, obman_y);
-									cout << " ";
-									obman_x++;
-									obman_x++;
-									obman_y--;
-									if (obman_x >= 24) {
-										obman_x = 23;
-									}
-									if (obman_y == 0) {
-										obman_y = 1;
-									}
-									perenos(obman_x, obman_y);
-									cout << "o";
-
-
-									Sleep(85);
-
-
-
-
-								}
-								if (obman_x == 21) {
-									or_or = 1;
-								}
-							}
-
-							else
-								if (or_or == 3) {
-									if (obman_y < 13 and obman_x < 23 and obman_y > 0) {
-
-										if (obman_y == i or obman_y == i1 or obman_y == i2) {
-											if (obman_x == 3) {
-												perevirka = 1;
-											}
-										}
-
-										if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-											if (obman_x == 19) {
-												perevirka = 2;
-											}
-										}
-										perenos(obman_x, obman_y);
-										cout << " ";
-
-										obman_x++;
-										obman_y--;
-										if (obman_x >= 24) {
-											obman_x = 23;
-										}
-										obman_y--;
-										if (obman_y == 0) {
-											obman_y = 1;
-										}
-										perenos(obman_x, obman_y);
-										cout << "o";
-
-
-										Sleep(85);
-
-
-
-
-									}
-									if (obman_y == 2) {
-										or_or = 1;
-									}
-
-									if (obman_y == 0) {
-										cout << "*";
-										perenos(obman_x, 1);
-										cout << "o";
-										x_y1 = 1;
-									}
-								}
-
-
-
-
-					}
-
-
-					if (obman_y == 12) {
-						x_y1 = 2;
-
-					}
-					if (obman_y == 1) {
-						x_y1 = 1;
-
-					}
-					if (obman_x == 22) {
-						perevirka = 2;
-					}
-					if (obman_y == 140) {
-						for (int i = 0; i < right; i++) {
-							cout << "*";
-						}
-
-						x_y1 = 1 + rand() % (2);
-						obman_y = 13;
-
-					}
-
-
-
-					if (obman_x == 0) {
-						perevirka = 2;
-					}
-
-					if (obman_y == 0) {
-						cout << "*";
-						perenos(obman_x, 1);
-						cout << "o";
-						x_y1 = 1;
-					}
-
-				}
-
-				else if (perevirka == 2) {
-				left_or_right = 2;
-					if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
-
-						or_or = 1 + rand() % (3);
-
-					}
-
-
-					if (obman_y == i or obman_y == i1 or obman_y == i2) {
-						if (obman_x == 3) {
-							or_or = 1 + rand() % (3);
-						}
-					}
-
-
-					//ліво-верх
-					if (x_y == 1) {
-
-
-						if (or_or == 1) {
-							if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
-
-
-
-								if (obman_y == i or obman_y == i1 or obman_y == i2) {
-									if (obman_x == 3) {
-										perevirka = 1;
-									}
-								}
-
-								if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-									if (obman_x == 19) {
-										perevirka = 2;
-									}
-								}
-
-								perenos(obman_x, obman_y);
-								cout << " ";
-
-								obman_x--;
-								obman_y--;
-								if (obman_y == 0) {
-									obman_y = 1;
-								}
-								perenos(obman_x, obman_y);
-								cout << "o";
-
-
-								Sleep(85);
-
-
-
-
-							}
-						}
-
-						else
-							if (or_or == 2) {
-								if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
-
-									if (obman_y == i or obman_y == i1 or obman_y == i2) {
-										if (obman_x == 3) {
-											perevirka = 1;
-										}
-									}
-
-									if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-										if (obman_x == 19) {
-											perevirka = 2;
-										}
-									}
-
-
-									perenos(obman_x, obman_y);
-									cout << " ";
-									obman_x--;
-									obman_x--;
-									obman_y--;
-									if (obman_y == 0) {
-										obman_y = 1;
-									}
-									if (obman_x == 0) {
-										obman_x = 1;
-									}
-									perenos(obman_x, obman_y);
-									cout << "o";
-
-
-									Sleep(85);
-
-
-
-
-								}
-								if (obman_x == 2) {
-									or_or = 1;
-								}
-							}
-
-							else
-								if (or_or == 3) {
-									if (obman_y < 14 and obman_x > 1 and obman_y > 0 and obman_y <= 11) {
-
-
-										if (obman_y == i or obman_y == i1 or obman_y == i2) {
-											if (obman_x == 3) {
-												perevirka = 1;
-											}
-										}
-
-										if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-											if (obman_x == 19) {
-												perevirka = 2;
-											}
-										}
-
-										perenos(obman_x, obman_y);
-										cout << " ";
-
-										obman_x--;
-										obman_y--;
-										obman_y--;
-										if (obman_y == 0) {
-											obman_y = 1;
-										}
-										perenos(obman_x, obman_y);
-										cout << "o";
-
-										Sleep(85);
-
-
-
-
-									}
-									if (obman_y == 11) {
-										or_or = 1;
-									}
-								}
-
-
-
-
-
-
-
-
-
-
-
-
-
-						if (obman_y == 12) {
-							x_y = 1;
-
-						}
-
-						if (obman_x == 1) {
-							perevirka = 1;
-						}
-
-
-						if (obman_y == 1) {
-							x_y = 2;
-
-						}
-						if (obman_y == -1) {
-							perenos(0, 0);
+						if (obman_y == 14) {
 							for (int i = 0; i < right; i++) {
 								cout << "*";
 							}
-							obman_y = 1;
 
-							x_y = 1 + rand() % (2);
+							x_y1 = 1 + rand() % (2);
+							obman_y = 13;
 
 						}
+
+
+
+						if (obman_x == 0) {
+							perevirka = 2;
+						}
+
 						if (obman_y == 0) {
 							cout << "*";
 							perenos(obman_x, 1);
-
-							x_y = 2;
-
-						}
-						if (obman_x == 0) {
-							x_y = perevirka = 1;
-
+							cout << "o";
+							x_y1 = 1;
 						}
 
 					}
-					//ліво низ
-					if (x_y == 2) {
-						if (or_or == 1) {
-							if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
 
-								if (obman_y == i or obman_y == i1 or obman_y == i2) {
-									if (obman_x == 3) {
-										perevirka = 1;
-									}
-								}
+					else if (perevirka == 2) {
+						left_or_right = 2;
+						if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
 
-								if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-									if (obman_x == 19) {
-										perevirka = 2;
-									}
-								}
+							or_or = 1 + rand() % (3);
+
+						}
 
 
-								perenos(obman_x, obman_y);
-								cout << " ";
-
-								obman_x--;
-								obman_y++;
-								perenos(obman_x, obman_y);
-								cout << "o";
-								Sleep(85);
-
-
-
-
+						if (obman_y == i or obman_y == i1 or obman_y == i2) {
+							if (obman_x == 3) {
+								or_or = 1 + rand() % (3);
+							}
+						}
+						if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
+							if (obman_x == 19) {
+								or_or = 1 + rand() % (3);
 							}
 						}
 
-						else
-							if (or_or == 2) {
-								if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
+						//ліво-верх
+						if (x_y == 1) {
 
+
+							if (or_or == 1) {
+								if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
 
 									if (obman_y == i or obman_y == i1 or obman_y == i2) {
 										if (obman_x == 3) {
@@ -2054,15 +2050,161 @@ void all() {
 										}
 									}
 
-									if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-										if (obman_x == 19) {
-											perevirka = 2;
+									perenos(obman_x, obman_y);
+									cout << " ";
+
+									obman_x--;
+									obman_y--;
+									if (obman_y == 0) {
+										obman_y = 1;
+									}
+									perenos(obman_x, obman_y);
+									cout << "o";
+
+
+									Sleep(85);
+
+
+
+
+								}
+							}
+
+							else
+								if (or_or == 2) {
+									if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
+										if (obman_y == i or obman_y == i1 or obman_y == i2) {
+											if (obman_x == 3) {
+												perevirka = 1;
+											}
+										}
+
+
+
+										perenos(obman_x, obman_y);
+										cout << " ";
+										obman_x--;
+										obman_x--;
+										obman_y--;
+										if (obman_y == 0) {
+											obman_y = 1;
+										}
+										if (obman_x == 0) {
+											obman_x = 1;
+										}
+										perenos(obman_x, obman_y);
+										cout << "o";
+
+
+										Sleep(85);
+
+
+
+
+									}
+									if (obman_x == 2) {
+										or_or = 1;
+									}
+								}
+
+								else
+									if (or_or == 3) {
+										if (obman_y < 14 and obman_x > 1 and obman_y > 0 and obman_y <= 11) {
+
+											if (obman_y == i or obman_y == i1 or obman_y == i2) {
+												if (obman_x == 3) {
+													perevirka = 1;
+												}
+											}
+
+
+											perenos(obman_x, obman_y);
+											cout << " ";
+
+											obman_x--;
+											obman_y--;
+											obman_y--;
+											if (obman_y == 0) {
+												obman_y = 1;
+											}
+											perenos(obman_x, obman_y);
+											cout << "o";
+
+											Sleep(85);
+
+
+
+
+										}
+										if (obman_y == 11) {
+											or_or = 1;
 										}
 									}
 
+
+
+
+
+
+
+
+
+
+
+
+
+							if (obman_y == 12) {
+								x_y = 1;
+
+							}
+
+							if (obman_x == 1) {
+								perevirka = 1;
+							}
+
+
+							if (obman_y == 1) {
+								x_y = 2;
+
+							}
+							if (obman_y == -1) {
+								perenos(0, 0);
+								for (int i = 0; i < right; i++) {
+									cout << "*";
+								}
+								obman_y = 1;
+
+								x_y = 1 + rand() % (2);
+
+							}
+							if (obman_y == 0) {
+								cout << "*";
+								perenos(obman_x, 1);
+
+								x_y = 2;
+
+							}
+							if (obman_x == 0) {
+								perevirka = 1;
+
+							}
+
+						}
+						//ліво низ
+						if (x_y == 2) {
+							if (or_or == 1) {
+								if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
+
+									if (obman_y == i or obman_y == i1 or obman_y == i2) {
+										if (obman_x == 3) {
+											perevirka = 1;
+										}
+									}
+
+
 									perenos(obman_x, obman_y);
 									cout << " ";
-									obman_x--;
+
 									obman_x--;
 									obman_y++;
 									perenos(obman_x, obman_y);
@@ -2073,15 +2215,11 @@ void all() {
 
 
 								}
-								if (obman_x == 2) {
-									or_or = 1;
-								}
 							}
 
 							else
-								if (or_or == 3) {
+								if (or_or == 2) {
 									if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
-
 
 										if (obman_y == i or obman_y == i1 or obman_y == i2) {
 											if (obman_x == 3) {
@@ -2089,17 +2227,11 @@ void all() {
 											}
 										}
 
-										if (obman_y == i_1 or obman_y == i1_1 or obman_y == i2_1) {
-											if (obman_x == 19) {
-												perevirka = 2;
-											}
-										}
 
 										perenos(obman_x, obman_y);
 										cout << " ";
-
 										obman_x--;
-										obman_y++;
+										obman_x--;
 										obman_y++;
 										perenos(obman_x, obman_y);
 										cout << "o";
@@ -2109,29 +2241,83 @@ void all() {
 
 
 									}
-									if (obman_y == 11) {
+									if (obman_x == 2) {
 										or_or = 1;
 									}
 								}
 
-						if (obman_y == 12) {
-							x_y = 1;
+								else
+									if (or_or == 3) {
+										if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
+
+											if (obman_y == i or obman_y == i1 or obman_y == i2) {
+												if (obman_x == 3) {
+													perevirka = 1;
+												}
+											}
+
+
+											perenos(obman_x, obman_y);
+											cout << " ";
+
+											obman_x--;
+											obman_y++;
+											obman_y++;
+											perenos(obman_x, obman_y);
+											cout << "o";
+											Sleep(85);
+
+
+
+
+										}
+										if (obman_y == 11) {
+											or_or = 1;
+										}
+									}
+
+							if (obman_y == 12) {
+								x_y = 1;
+
+							}
+
+							if (obman_x == 1) {
+								perevirka = 1;
+							}
+							if (obman_y == -1) {
+								perenos(0, 0);
+								for (int i = 0; i < right; i++) {
+									cout << "*";
+								}
+								obman_y = 1;
+
+								x_y = 1 + rand() % (2);
+
+							}
+
+							if (obman_x == 0) {
+								x_y = perevirka = 1;
+
+							}
 
 						}
 
-						if (obman_x == 1) {
+
+
+
+						if (obman_x == 0) {
 							perevirka = 1;
 						}
-						if (obman_y == -1) {
-							perenos(0, 0);
-							for (int i = 0; i < right; i++) {
-								cout << "*";
+
+
+						if (obman_y == i or obman_y == i1 or obman_y == i2) {
+							if (obman_x == 3) {
+								perevirka = 1;
 							}
-							obman_y = 1;
-
-							x_y = 1 + rand() % (2);
-
 						}
+
+
+
 
 						if (obman_x == 0) {
 							x_y = perevirka = 1;
@@ -2140,111 +2326,12 @@ void all() {
 
 					}
 
-					
-
-					
-
-					if (obman_x == 0) {
-						perevirka = 1;
-					}
-
-
-				
-
-
-
-
-					if (obman_x == 0) {
-						x_y = perevirka = 1;
-
-					}
-
-				}
 
 
 
 
 
-				GetKEY();
 
-				//обрлбка верх
-
-
-				//клавиша верх
-				if (left_or_right == 2) {
-					if (KEY[38])
-					{
-
-						if (i >= verh - 11) {
-							//закраска старих
-							i++;
-							i1++;
-							i2++;
-							perenos(2, i);
-							cout << " ";
-							perenos(2, i1);
-							cout << " ";
-
-							perenos(2, i2);
-							cout << " ";
-							//+ в верх
-							i--;
-							i1--;
-							i2--;
-
-							i--;
-							i1--;
-							i2--;
-							perenos(2, i);
-							cout << "*";
-							perenos(2, i1);
-							cout << "*";
-
-							perenos(2, i2);
-							cout << "*";
-
-						}
-
-
-					}
-					//клавиша вниз
-					else
-						if (KEY[40])
-						{
-							if (i <= verh - 3) {
-								//закраска старих
-								i--;
-								i1--;
-								i2--;
-								perenos(2, i);
-								cout << " ";
-								perenos(2, i1);
-								cout << " ";
-								perenos(2, i2);
-								cout << " ";
-								//+ в верх
-								i++;
-								i1++;
-								i2++;
-
-								i++;
-								i1++;
-								i2++;
-								perenos(2, i);
-								cout << "*";
-								perenos(2, i1);
-								cout << "*";
-
-								perenos(2, i2);
-								cout << "*";
-
-							}
-
-
-
-						}
-				}
-				if (left_or_right == 1) {
 
 					GetKEY();
 
@@ -2252,6 +2339,82 @@ void all() {
 
 
 					//клавиша верх
+					if (left_or_right == 2) {
+						if (KEY[38])
+						{
+
+							if (i >= verh - 11) {
+								//закраска старих
+								i++;
+								i1++;
+								i2++;
+								perenos(2, i);
+								cout << " ";
+								perenos(2, i1);
+								cout << " ";
+
+								perenos(2, i2);
+								cout << " ";
+								//+ в верх
+								i--;
+								i1--;
+								i2--;
+
+								i--;
+								i1--;
+								i2--;
+								perenos(2, i);
+								cout << "*";
+								perenos(2, i1);
+								cout << "*";
+
+								perenos(2, i2);
+								cout << "*";
+
+							}
+
+
+						}
+						//клавиша вниз
+						else
+							if (KEY[40])
+							{
+								if (i <= verh - 3) {
+									//закраска старих
+									i--;
+									i1--;
+									i2--;
+									perenos(2, i);
+									cout << " ";
+									perenos(2, i1);
+									cout << " ";
+									perenos(2, i2);
+									cout << " ";
+									//+ в верх
+									i++;
+									i1++;
+									i2++;
+
+									i++;
+									i1++;
+									i2++;
+									perenos(2, i);
+									cout << "*";
+									perenos(2, i1);
+									cout << "*";
+
+									perenos(2, i2);
+									cout << "*";
+
+								}
+
+
+
+							}
+					}
+				}
+
+				if (left_or_right == 1) {
 					if (KEY[38])
 					{
 
@@ -2323,17 +2486,56 @@ void all() {
 
 
 						}
-
-
-					//обрлбка верх 112
-
 				}
-				//обробка мяча
-
-			}
+				}
 
 
 
+				int wi = 1;
+				if (KEY[16])
+				{
+					mozno = 1;
+					wi = 0;
+				}
+				if (wi == 0) {
+					ramka5();
+
+					SetColor(RED_FADE, PINK_FADE);
+					perenos(6, 3001);
+					cout << "ВОЙТИ В МЕНЮ";
+					SetColor(RED_FADE, BLACK);
+					perenos(8, 3002);
+					cout << "EXIT";
+
+					int what_1 = 1;
+					int true_false = 1;
+
+
+
+
+
+
+
+
+					int gde = 3001;
+
+					while (true_false != 0) {
+						if (what_1 == 1) {
+							perenos(0, 3000);
+							GetKEY();
+
+							if (KEY[38])
+							{
+								gde = 3001;
+								if (gde == 3001) {
+									for (int i = 0; i < 23; i++) {
+										perenos(i, gde);
+										SetColor(RED_FADE, BLACK);
+										cout << " ";
+									}
+									perenos(6, gde);
+
+									cout << "ВОЙТИ В МЕНЮ";
 
 
 
@@ -2343,16 +2545,149 @@ void all() {
 
 
 
+									perenos(0, gde);
+
+
+									for (int i = 0; i < 23; i++) {
+										perenos(i, gde);
+										SetColor(RED_FADE, PINK_FADE);
+										cout << " ";
+									}
+									perenos(6, gde);
+									cout << "ВОЙТИ В МЕНЮ";
+
+								}
+
+
+								if (gde == 3002) {
+
+									for (int i = 0; i < 23; i++) {
+										perenos(i, 3001);
+										SetColor(RED_FADE, BLACK);
+										cout << " ";
+									}
+									perenos(6, 3001);
+									cout << "ВОЙТИ В МЕНЮ";
+									gde--;
+								}
+								else
+									if (gde == 3001) {
+
+										for (int i = 0; i < 23; i++) {
+											perenos(i, 3002);
+											SetColor(RED_FADE, BLACK);
+											cout << " ";
+										}
+										perenos(8, 3002);
+
+										cout << "EXIT";
+										gde++;
+									}
+
+
+							}
+							//клавиша вниз
+							else
+								if (KEY[40])
+								{
+									gde = 3002;
+									if (gde == 3002) {
+
+										for (int i = 0; i < 23; i++) {
+											perenos(i, gde);
+											SetColor(RED_FADE, BLACK);
+											cout << " ";
+										}
+										perenos(8, gde);
+										cout << "EXIT";
 
 
 
 
 
+
+
+
+
+										perenos(0, gde);
+
+
+										for (int i = 0; i < 23; i++) {
+											perenos(i, gde);
+											SetColor(RED_FADE, PINK_FADE);
+											cout << " ";
+										}
+										perenos(8, gde);
+										cout << "EXIT";
+
+									}
+
+									if (gde == 3002) {
+
+										for (int i = 0; i < 23; i++) {
+											perenos(i, 3001);
+											SetColor(RED_FADE, BLACK);
+											cout << " ";
+										}
+										perenos(6, 3001);
+										cout << "ВОЙТИ В МЕНЮ";
+										gde--;
+									}
+									else
+										if (gde == 3001) {
+
+											for (int i = 0; i < 23; i++) {
+												perenos(i, 3002);
+												SetColor(RED_FADE, BLACK);
+												cout << " ";
+											}
+											perenos(8, 3002);
+
+											cout << "EXIT";
+											gde++;
+										}
+								}
+								else
+									if (KEY[18])
+									{
+										if (gde == 3001) {
+											what_1 = 2;
+										}
+										else if (gde == 3002) {
+											what_1 = 3;
+										}
+
+									}
+
+
+
+
+
+									else if (what_1 == 2) {
+										mozno = 1;
+										wi = 1;
+										what = 1;
+									}
+									else if (what_1 == 3) {
+
+										break;
+									}
+
+
+
+							if (KEY[27])
+							{
+								wi = 1;
+								mozno = 0;
+							}
+						}
+					}
 
 		}
 
 	}
-
+	}
+	
 	//гра 2 гонка
 	if (what == 3) {
 		int lvl = 0;
@@ -3133,122 +3468,7 @@ void all() {
 
 	}
 	//калькурятор калорій
-	if (what == 4) {
-		ConsoleCursorVisible(false, 100);
-		setlocale(LC_ALL, "Ukrainian");
-		SetConsoleOutputCP(1251);
-		SetConsoleCP(1251);
-		srand(time(NULL));
-		GetKEY();
-
-		int what = 0;
-		while (1) {
-			//меню
-			if (what == 0) {
-				perenos(40, 50);
-				cout << "це програма яка щитає скіки калорій ";
-				perenos(40, 51);
-				cout << "вам потрібно їсти щоб не наберати і не худнути";
-				perenos(40, 52);
-				cout << "для начала вам потрібно знати свою суху масу тіла";
-				perenos(40, 53);
-				cout << "якщо ви не знаєте то напишіт 2 якщо знаете то напишіт 1 ";
-				perenos(40, 54);
-				cout << "пишіт ваш вибір: ";
-				cin >> what;
-
-
-
-
-
-
-
-			}
-			//суха маса
-			int procent = 0;
-			int ves = 0;
-			//знаете
-			int rahunok = 0;
-			int calori = 0;
-			//рахуємо суху масу і калорії
-			if (what == 1) {
-				cout << "коли все нашли і зробили то впишіть следущі дані:";
-
-				perenos(40, 100);
-				cout << "1)свій вес, 2)свій процент жира і все";
-
-				perenos(40, 101);
-				cout << "впишіт свій вес: ";
-				cin >> ves;
-				perenos(40, 102);
-				cout << "впишіт свій процент жира: ";
-				cin >> procent;
-
-				if (procent == 3) {
-					rahunok = ves / 1.03;
-				}
-				else
-					if (procent == 6) {//61
-						rahunok = ves / 1.06;
-					}
-					else
-						if (procent == 10) {//58
-							rahunok = ves / 1.12;
-						}
-						else
-							if (procent == 15) {
-								rahunok = ves / 1.18;
-							}
-
-							else
-								if (procent == 20) {//52
-									rahunok = ves / 1.25;
-								}
-								else
-									if (procent == 25) {//48
-										rahunok = ves / 1.35;
-									}
-									else
-										if (procent == 30) {//45
-											rahunok = ves / 1.44;
-										}
-										else
-											if (procent == 35) {//42
-												rahunok = ves / 1.54;
-											}
-											else
-												if (procent == 40) {//39
-													rahunok = ves / 1.66;
-												}
-				calori = rahunok * 36;
-				perenos(40, 103);
-				cout << "ваша суха маса: " << rahunok << "кг" << "вот ваши калорії: " << calori - 100 << "-" << calori + 100;
-				perenos(40, 104);
-				cout << "це не 100% правильно якщо набераєте то відняти 100грам";
-				perenos(40, 105);
-				cout << " каші якщо худнете то + 100грам каші";
-				Sleep(20000);
-				what = 0;
-
-			}
-			//узнаємо ваш процент жиру
-			if (what == 2) {
-				perenos(40, 0);
-				cout << "для начала вам потрібно узнати свій процент жира";
-				perenos(40, 1);
-				cout << "якщо ви не знаете то перейдіт на сайт і найдіть свій процент";
-				perenos(40, 2);
-				cout << "https://snazzy-eclair-dcd63a.netlify.app";
-				perenos(40, 3);
-				cout << "якщо ви знайшли свій процент жира ";
-
-				perenos(40, 4);
-				cout << "тоді ми можеме переходити до наступного процесу напишіть 1 щоб перейти: ";
-				cin >> what;
-			}
-		}
-
-	}
+	
 
 }
 
