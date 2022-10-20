@@ -163,10 +163,179 @@ void all() {
 
 
 
-	int what = 0;
+	int what = 6;
 	int yes_or_no = 0;
 	//меню
+	if (what == 6) {
+		setlocale(LC_ALL, "Ukrainian");
+		SetConsoleOutputCP(1251);
+		SetConsoleCP(1251);
+		srand(time(NULL));
+		system("cls");
+		ramka();
+		int gde = 2;
+		SetColor(RED_FADE, WHITE);
 
+		perenos(6, 1);
+		SetColor(RED_FADE, PINK_FADE);
+		cout << "РЕГЕСТРАЦІЯ";
+
+		perenos(6, 2);
+		SetColor(RED_FADE, BLACK);
+		cout << "ВХОД В АКАУНТ";
+
+		int what_1 = 1;
+		int true_false = 1;
+		while (true_false != 0) {
+			if (what_1 == 1) {
+				perenos(0, 0);
+				GetKEY();
+
+				if (KEY[38])
+				{
+					gde = 1;
+					if (gde == 1) {
+						for (int i = 0; i < 23; i++) {
+							perenos(i, gde);
+							SetColor(RED_FADE, BLACK);
+							cout << " ";
+						}
+						perenos(6, gde);
+
+						cout << "РЕГЕСТРАЦІЯ";
+
+
+
+
+
+
+
+
+
+						perenos(0, gde);
+
+
+						for (int i = 0; i < 23; i++) {
+							perenos(i, gde);
+							SetColor(RED_FADE, PINK_FADE);
+							cout << " ";
+						}
+						perenos(6, gde);
+						cout << "РЕГЕСТРАЦІЯ";
+
+					}
+
+
+					if (gde == 1002) {
+
+						for (int i = 0; i < 23; i++) {
+							perenos(i, 1);
+							SetColor(RED_FADE, BLACK);
+							cout << " ";
+						}
+						perenos(6, 1);
+						cout << "РЕГЕСТРАЦІЯ";
+						gde--;
+					}
+					else
+						if (gde == 1) {
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, 2);
+								SetColor(RED_FADE, BLACK);
+								cout << " ";
+							}
+							perenos(6, 2);
+
+							cout << "ВХОД В АКАУНТ";
+							gde++;
+						}
+
+
+				}
+				//клавиша вниз
+				else
+					if (KEY[40])
+					{
+						gde = 2;
+						if (gde == 2) {
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, gde);
+								SetColor(RED_FADE, BLACK);
+								cout << " ";
+							}
+							perenos(6, gde);
+
+
+
+
+
+
+
+
+
+
+							perenos(0, gde);
+
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, gde);
+								SetColor(RED_FADE, PINK_FADE);
+
+								cout << " ";
+							}
+							perenos(6, gde);
+							cout << "ВХОД В АКАУНТ";
+
+						}
+
+						if (gde == 2) {
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, 1);
+								SetColor(RED_FADE, BLACK);
+								cout << " ";
+							}
+							perenos(6, 1);
+							cout << "РЕГЕСТРАЦІЯ";
+							gde--;
+						}
+						else
+							if (gde == 1) {
+
+								for (int i = 0; i < 23; i++) {
+									perenos(i, 2);
+									SetColor(RED_FADE, BLACK);
+									cout << " ";
+								}
+								perenos(6, 2);
+
+								cout << "ВХОД В АКАУНТ";
+								gde++;
+							}
+					}
+					else
+						if (KEY[13])
+						{
+							if (gde == 1) {
+								what_1 = 2;
+							}
+							else if (gde == 2) {
+								what_1 = 3;
+							}
+
+						}
+			}
+			if (what_1 == 2) {
+
+			}
+			if (what_1 == 3) {
+
+			}
+			SetColor(WHITE, BLACK);
+
+	}
 
 
 	if (what == 0) {
@@ -353,9 +522,9 @@ void all() {
 			
 
 
-				Sleep(20000);
+				Sleep(10000);
 
-				what_1 = 1;
+				what_1 = 3;
 
 
 			}
@@ -2486,6 +2655,7 @@ void all() {
 		cin >> lvl;
 		//контур
 		if (lvl == 1) {
+			system("cls");
 			gotoxy(0, 0);
 			int verh = 14;
 			int right = 14;
@@ -2707,6 +2877,7 @@ void all() {
 		}
 		else
 			if (lvl == 2) {
+				system("cls");
 				gotoxy(0, 0);
 				int verh = 14;
 				int right = 14;
@@ -2965,6 +3136,7 @@ void all() {
 			}
 			else
 				if (lvl == 3) {
+					system("cls");
 					gotoxy(0, 0);
 					int verh = 14;
 					int right = 14;
