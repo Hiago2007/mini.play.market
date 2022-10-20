@@ -9,17 +9,7 @@ mini_play_market
 * [x] hi
 
 ```
-	else
-						if (KEY[13])
-						{
-							if (gde == 1) {
-								what_1 = 2;
-							}
-							else if (gde == 2) {
-								what_1 = 3;
-							}
-
-						}
+	код
 ```
 ---
 test `test` *test*
@@ -32,10 +22,10 @@ test `test` *test*
 4. 4
 5. 4
 
-[click](https://github.com/Hiago2007/mini.play.market/tree/master)
+[click](link)
 
-![1](img/pravila.png)
-![1](img/lvl_1.png)
+![1](link)
+![1](link)
 
 
 
