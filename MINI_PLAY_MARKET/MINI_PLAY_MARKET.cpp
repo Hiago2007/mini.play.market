@@ -76,12 +76,12 @@ void SetColor(ConsoleColor text, ConsoleColor background)
 }
 void ramka() {
 
-	perenos(0, 1000);
+	perenos(0,0);
 	for (int i = 0; i < 24; i++) {
 		cout << "*";
 	}
 
-	for (int j = 1001; j < 1013; j++) {
+	for (int j = 1; j < 13; j++) {
 		perenos(0, j);
 		for (int i = 0; i < 24; i++) {
 
@@ -91,7 +91,7 @@ void ramka() {
 			}
 		}
 	}
-	perenos(0, 1012);
+	perenos(0, 12);
 	for (int i = 0; i < 24; i++) {
 		cout << "*";
 	}
@@ -102,12 +102,12 @@ void ramka() {
 
 void ramka1() {
 
-	perenos(0, 2000);
+	perenos(0, 0);
 	for (int i = 0; i < 24; i++) {
 		cout << "*";
 	}
 
-	for (int j = 2001; j < 2013; j++) {
+	for (int j = 1; j < 13; j++) {
 		perenos(0, j);
 		for (int i = 0; i < 24; i++) {
 
@@ -117,7 +117,7 @@ void ramka1() {
 			}
 		}
 	}
-	perenos(0, 2012);
+	perenos(0, 12);
 	for (int i = 0; i < 24; i++) {
 		cout << "*";
 	}
@@ -130,12 +130,12 @@ void ramka1() {
 //основна ф-ція
 void ramka5() {
 
-	perenos(0, 3000);
+	perenos(0, 30);
 	for (int i = 0; i < 24; i++) {
 		cout << "*";
 	}
 
-	for (int j = 3001; j < 3013; j++) {
+	for (int j = 1; j < 13; j++) {
 		perenos(0, j);
 		for (int i = 0; i < 24; i++) {
 
@@ -145,7 +145,7 @@ void ramka5() {
 			}
 		}
 	}
-	perenos(0, 3012);
+	perenos(0, 12);
 	for (int i = 0; i < 24; i++) {
 		cout << "*";
 	}
@@ -167,21 +167,23 @@ void all() {
 	int yes_or_no = 0;
 	//меню
 
+
+
 	if (what == 0) {
 		setlocale(LC_ALL, "Ukrainian");
 		SetConsoleOutputCP(1251);
 		SetConsoleCP(1251);
 		srand(time(NULL));
-
+		system("cls");
 		ramka();
 		int gde = 2;
 		SetColor(RED_FADE, WHITE);
 
-		perenos(6, 1001);
+		perenos(6, 1);
 		SetColor(RED_FADE, PINK_FADE);
 		cout << "начати гру";
 
-		perenos(6, 1002);
+		perenos(6, 2);
 		SetColor(RED_FADE, BLACK);
 		cout << "правила ігор";
 
@@ -189,13 +191,13 @@ void all() {
 		int true_false = 1;
 		while (true_false != 0) {
 			if (what_1 == 1) {
-				perenos(0, 1000);
+				perenos(0, 0);
 				GetKEY();
 
 				if (KEY[38])
 				{
-					gde = 1001;
-					if (gde == 1001) {
+					gde = 1;
+					if (gde == 1) {
 						for (int i = 0; i < 23; i++) {
 							perenos(i, gde);
 							SetColor(RED_FADE, BLACK);
@@ -230,23 +232,23 @@ void all() {
 					if (gde == 1002) {
 
 						for (int i = 0; i < 23; i++) {
-							perenos(i, 1001);
+							perenos(i, 1);
 							SetColor(RED_FADE, BLACK);
 							cout << " ";
 						}
-						perenos(6, 1001);
+						perenos(6, 1);
 						cout << "начати гру";
 						gde--;
 					}
 					else
-						if (gde == 1001) {
+						if (gde ==1) {
 
 							for (int i = 0; i < 23; i++) {
-								perenos(i, 1002);
+								perenos(i, 2);
 								SetColor(RED_FADE, BLACK);
 								cout << " ";
 							}
-							perenos(6, 1002);
+							perenos(6, 2);
 
 							cout << "правила ігор";
 							gde++;
@@ -258,8 +260,8 @@ void all() {
 				else
 					if (KEY[40])
 					{
-						gde = 1002;
-						if (gde == 1002) {
+						gde = 2;
+						if (gde == 2) {
 
 							for (int i = 0; i < 23; i++) {
 								perenos(i, gde);
@@ -291,26 +293,26 @@ void all() {
 
 						}
 
-						if (gde == 1002) {
+						if (gde == 2) {
 
 							for (int i = 0; i < 23; i++) {
-								perenos(i, 1001);
+								perenos(i, 1);
 								SetColor(RED_FADE, BLACK);
 								cout << " ";
 							}
-							perenos(6, 1001);
+							perenos(6, 1);
 							cout << "начати гру";
 							gde--;
 						}
 						else
-							if (gde == 1001) {
+							if (gde == 1) {
 
 								for (int i = 0; i < 23; i++) {
-									perenos(i, 1002);
+									perenos(i, 2);
 									SetColor(RED_FADE, BLACK);
 									cout << " ";
 								}
-								perenos(6, 1002);
+								perenos(6, 2);
 
 								cout << "правила ігор";
 								gde++;
@@ -319,10 +321,10 @@ void all() {
 					else
 						if (KEY[13])
 						{
-							if (gde == 1001) {
+							if (gde == 1) {
 								what_1 = 2;
 							}
-							else if (gde == 1002) {
+							else if (gde == 2) {
 								what_1 = 3;
 							}
 
@@ -332,19 +334,20 @@ void all() {
 
 
 			if (what_1 == 2) {
-				perenos(25, 1200);
+				system("cls");
+				perenos(25, 0);
 				cout << "гра 1 ping-pong її правила : ";
-				perenos(25, 1201);
+				perenos(25, 1);
 				cout << "потрібно двигати платформою і відбивати мяч ";
-				perenos(25, 1202);
+				perenos(25, 2);
 				cout << "якщо мяч заходить за платформу - 50 очков якщо відбивається +100 ";
 
-				perenos(25, 1203);
+				perenos(25, 3);
 				cout << "гра 2 mini_race її правила : ";
 
-				perenos(25, 1204);
+				perenos(25, 4);
 				cout << "потрібно уварачоватися від машин щоб не збитися ";
-				perenos(25, 1205);
+				perenos(25, 5);
 				cout << "якщо машина заходить за вас то +10% до нового уровня якщо збивається то ви програли";
 
 			
@@ -371,27 +374,190 @@ void all() {
 	}
 	//вибір гри
 	if (what == 1) {
-
-		gotoxy(25, 800);
-		cout << "Добрый день вы зашли в игру MINI_GOOGLE_PLAY";
-		gotoxy(25, 801);
-		cout << "у вас є на вибор 2 ігри і 1 програма";
-		gotoxy(25, 802);
-		cout << "1 ігра MINI_PONG 2 ігра MINE_RASE 3 КАЛОРІЇ";
-
-		gotoxy(25, 803);
-		cout << "щоб увійти в гру 1 нажміть 2";
-
-		gotoxy(25, 804);
-		cout << "щоб увійти в гру 2 нажміть 3";
-
+		system("cls");
+		setlocale(LC_ALL, "Ukrainian");
+		SetConsoleOutputCP(1251);
+		SetConsoleCP(1251);
+		srand(time(NULL));
 	
+		ramka();
+		int gde = 2;
+		SetColor(RED_FADE, WHITE);
 
-		gotoxy(25, 806);
-		cout << "ваш вибір: ";
+		perenos(6, 1);
+		SetColor(RED_FADE, PINK_FADE);
+		cout << "гра pong";
 
-		cin >> what;
+		perenos(6, 2);
+		SetColor(RED_FADE, BLACK);
+		cout << "гра mini_race";
 
+		int what_1 = 1;
+		int true_false = 1;
+		while (true_false != 0) {
+			if (what_1 == 1) {
+				perenos(0, 0);
+				GetKEY();
+
+				if (KEY[38])
+				{
+					gde = 1;
+					if (gde == 1) {
+						for (int i = 0; i < 23; i++) {
+							perenos(i, gde);
+							SetColor(RED_FADE, BLACK);
+							cout << " ";
+						}
+						perenos(6, gde);
+
+						cout << "гра pong";
+
+
+
+
+
+
+
+
+
+						perenos(0, gde);
+
+
+						for (int i = 0; i < 23; i++) {
+							perenos(i, gde);
+							SetColor(RED_FADE, PINK_FADE);
+							cout << " ";
+						}
+						perenos(6, gde);
+						cout << "гра pong";
+
+					}
+
+
+					if (gde == 1002) {
+
+						for (int i = 0; i < 23; i++) {
+							perenos(i, 1);
+							SetColor(RED_FADE, BLACK);
+							cout << " ";
+						}
+						perenos(6, 1);
+						cout << "гра pong";
+						gde--;
+					}
+					else
+						if (gde == 1) {
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, 2);
+								SetColor(RED_FADE, BLACK);
+								cout << " ";
+							}
+							perenos(6, 2);
+
+							cout << "гра mini_race";
+							gde++;
+						}
+
+
+				}
+				//клавиша вниз
+				else
+					if (KEY[40])
+					{
+						gde = 2;
+						if (gde == 2) {
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, gde);
+								SetColor(RED_FADE, BLACK);
+								cout << " ";
+							}
+							perenos(6, gde);
+
+
+
+
+
+
+
+
+
+
+							perenos(0, gde);
+
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, gde);
+								SetColor(RED_FADE, PINK_FADE);
+
+								cout << " ";
+							}
+							perenos(6, gde);
+							cout << "гра mini_race";
+
+						}
+
+						if (gde == 2) {
+
+							for (int i = 0; i < 23; i++) {
+								perenos(i, 1);
+								SetColor(RED_FADE, BLACK);
+								cout << " ";
+							}
+							perenos(6, 1);
+							cout << "гра pong";
+							gde--;
+						}
+						else
+							if (gde == 1) {
+
+								for (int i = 0; i < 23; i++) {
+									perenos(i, 2);
+									SetColor(RED_FADE, BLACK);
+									cout << " ";
+								}
+								perenos(6, 2);
+
+								cout << "гра mini_race";
+								gde++;
+							}
+					}
+					else
+						if (KEY[13])
+						{
+							if (gde == 1) {
+								what_1 = 3;
+							}
+							else if (gde == 2) {
+								what_1 = 2;
+							}
+
+						}
+			}
+						if (what_1 == 2) {
+							true_false = 0;
+							what = 2;
+
+						}
+						if (what_1 == 3) {
+							what = 3;
+							true_false = 0;
+						}
+			
+			SetColor(WHITE, BLACK);
+
+
+		
+
+
+
+
+
+
+
+		}
+	
 
 
 
@@ -400,17 +566,17 @@ void all() {
 	int regim = 0;
 	//гра 1 пін-понг
 	if (what == 2) {
-
+		system("cls");
 
 		ramka1();
 		int gde = 2;
 	
 
-		perenos(3, 2001);
+		perenos(3, 1);
 		SetColor(RED_FADE, PINK_FADE);
 		cout << "на одного гравця";
 
-		perenos(3, 2002);
+		perenos(3, 2);
 		SetColor(RED_FADE, BLACK);
 		cout << "на двох гравців";
 
@@ -418,13 +584,13 @@ void all() {
 		int true_false_1 = 1;
 		while (true_false_1 != 0) {
 			if (what_1 == 1) {
-				perenos(0, 2000);
+				perenos(0, 0);
 				GetKEY();
 
 				if (KEY[38])
 				{
-					gde = 2001;
-					if (gde == 2001) {
+					gde = 1;
+					if (gde == 1) {
 						for (int i = 0; i < 23; i++) {
 							perenos(i, gde);
 							SetColor(RED_FADE, BLACK);
@@ -455,26 +621,26 @@ void all() {
 					}
 
 
-					if (gde == 2002) {
+					if (gde == 2) {
 
 						for (int i = 0; i < 23; i++) {
-							perenos(i, 2001);
+							perenos(i, 1);
 							SetColor(RED_FADE, BLACK);
 							cout << " ";
 						}
-						perenos(3, 2001);
+						perenos(3, 1);
 						cout << "на одного гравця";
 						gde--;
 					}
 					else
-						if (gde == 2001) {
+						if (gde == 1) {
 
 							for (int i = 0; i < 23; i++) {
-								perenos(i, 2002);
+								perenos(i, 2);
 								SetColor(RED_FADE, BLACK);
 								cout << " ";
 							}
-							perenos(3, 2002);
+							perenos(3, 2);
 							cout << "на двох гравців";
 							gde++;
 						}
@@ -485,8 +651,8 @@ void all() {
 				else
 					if (KEY[40])
 					{
-						gde = 2002;
-						if (gde == 2002) {
+						gde = 2;
+						if (gde == 2) {
 
 							for (int i = 0; i < 23; i++) {
 								perenos(i, gde);
@@ -518,26 +684,26 @@ void all() {
 
 						}
 
-						if (gde == 2002) {
+						if (gde == 2) {
 
 							for (int i = 0; i < 23; i++) {
-								perenos(i, 2001);
+								perenos(i, 1);
 								SetColor(RED_FADE, BLACK);
 								cout << " ";
 							}
-							perenos(3, 2001);
+							perenos(3, 1);
 							cout << "на одного гравця";
 							gde--;
 						}
 						else
-							if (gde == 2001) {
+							if (gde == 1) {
 
 								for (int i = 0; i < 23; i++) {
-									perenos(i, 2002);
+									perenos(i, 2);
 									SetColor(RED_FADE, BLACK);
 									cout << " ";
 								}
-								perenos(3, 2002);
+								perenos(3, 2);
 								cout << "на двох гравців";
 								gde++;
 							}
@@ -545,10 +711,10 @@ void all() {
 					else
 						if (KEY[13])
 						{
-							if (gde == 2001) {
+							if (gde == 1) {
 								what_1 = 2;
 							}
-							else if (gde == 2002) {
+							else if (gde == 2) {
 								what_1 = 3;
 							}
 
@@ -577,6 +743,7 @@ void all() {
 		}
 		if (regim == 1) {
 			//рамки гри
+			system("cls");
 			gotoxy(0, 0);
 			int mozno = 0;
 			int verh = 13;
@@ -1381,198 +1548,7 @@ void all() {
 
 						}
 				}
-				int wi = 1;
-				if (KEY[16])
-				{
-					mozno = 1;
-					wi = 0;
-				}
-				if (wi == 0) {
-					ramka5();
-
-					SetColor(RED_FADE, PINK_FADE);
-					perenos(6, 3001);
-					cout << "ВОЙТИ В МЕНЮ";
-					SetColor(RED_FADE, BLACK);
-					perenos(8, 3002);
-					cout << "EXIT";
-
-					int what_1 = 1;
-					int true_false = 1;
-
-
-
-
-
-
-
-
-					int gde = 3001;
-
-					while (true_false != 0) {
-						if (what_1 == 1) {
-							perenos(0, 3000);
-							GetKEY();
-
-							if (KEY[38])
-							{
-								gde = 3001;
-								if (gde == 3001) {
-									for (int i = 0; i < 23; i++) {
-										perenos(i, gde);
-										SetColor(RED_FADE, BLACK);
-										cout << " ";
-									}
-									perenos(6, gde);
-
-									cout << "ВОЙТИ В МЕНЮ";
-
-
-
-
-
-
-
-
-
-									perenos(0, gde);
-
-
-									for (int i = 0; i < 23; i++) {
-										perenos(i, gde);
-										SetColor(RED_FADE, PINK_FADE);
-										cout << " ";
-									}
-									perenos(6, gde);
-									cout << "ВОЙТИ В МЕНЮ";
-
-								}
-
-
-								if (gde == 3002) {
-
-									for (int i = 0; i < 23; i++) {
-										perenos(i, 3001);
-										SetColor(RED_FADE, BLACK);
-										cout << " ";
-									}
-									perenos(6, 3001);
-									cout << "ВОЙТИ В МЕНЮ";
-									gde--;
-								}
-								else
-									if (gde == 3001) {
-
-										for (int i = 0; i < 23; i++) {
-											perenos(i, 3002);
-											SetColor(RED_FADE, BLACK);
-											cout << " ";
-										}
-										perenos(8, 3002);
-
-										cout << "EXIT";
-										gde++;
-									}
-
-
-							}
-							//клавиша вниз
-							else
-								if (KEY[40])
-								{
-									gde = 3002;
-									if (gde == 3002) {
-
-										for (int i = 0; i < 23; i++) {
-											perenos(i, gde);
-											SetColor(RED_FADE, BLACK);
-											cout << " ";
-										}
-										perenos(8, gde);
-										cout << "EXIT";
-
-
-
-
-
-
-
-
-
-										perenos(0, gde);
-
-
-										for (int i = 0; i < 23; i++) {
-											perenos(i, gde);
-											SetColor(RED_FADE, PINK_FADE);
-											cout << " ";
-										}
-										perenos(8, gde);
-										cout << "EXIT";
-
-									}
-
-									if (gde == 3002) {
-
-										for (int i = 0; i < 23; i++) {
-											perenos(i, 3001);
-											SetColor(RED_FADE, BLACK);
-											cout << " ";
-										}
-										perenos(6, 3001);
-										cout << "ВОЙТИ В МЕНЮ";
-										gde--;
-									}
-									else
-										if (gde == 3001) {
-
-											for (int i = 0; i < 23; i++) {
-												perenos(i, 3002);
-												SetColor(RED_FADE, BLACK);
-												cout << " ";
-											}
-											perenos(8, 3002);
-
-											cout << "EXIT";
-											gde++;
-										}
-								}
-								else
-									if (KEY[18])
-									{
-										if (gde == 3001) {
-											what_1 = 2;
-										}
-										else if (gde == 3002) {
-											what_1 = 3;
-										}
-
-									}
-
-
-
-
-
-									else if (what_1 == 2) {
-										mozno = 1;
-										wi = 1;
-										what = 1;
-									}
-									else if (what_1 == 3) {
-
-										break;
-									}
-
-
-
-							if (KEY[27])
-							{
-								wi = 1;
-								mozno = 0;
-							}
-						}
-					}
-				}
+				
 			}
 			//обробка мяча
 
@@ -2491,199 +2467,11 @@ void all() {
 
 
 
-				int wi = 1;
-				if (KEY[16])
-				{
-					mozno = 1;
-					wi = 0;
-				}
-				if (wi == 0) {
-					ramka5();
+				
+						
+					
 
-					SetColor(RED_FADE, PINK_FADE);
-					perenos(6, 3001);
-					cout << "ВОЙТИ В МЕНЮ";
-					SetColor(RED_FADE, BLACK);
-					perenos(8, 3002);
-					cout << "EXIT";
-
-					int what_1 = 1;
-					int true_false = 1;
-
-
-
-
-
-
-
-
-					int gde = 3001;
-
-					while (true_false != 0) {
-						if (what_1 == 1) {
-							perenos(0, 3000);
-							GetKEY();
-
-							if (KEY[38])
-							{
-								gde = 3001;
-								if (gde == 3001) {
-									for (int i = 0; i < 23; i++) {
-										perenos(i, gde);
-										SetColor(RED_FADE, BLACK);
-										cout << " ";
-									}
-									perenos(6, gde);
-
-									cout << "ВОЙТИ В МЕНЮ";
-
-
-
-
-
-
-
-
-
-									perenos(0, gde);
-
-
-									for (int i = 0; i < 23; i++) {
-										perenos(i, gde);
-										SetColor(RED_FADE, PINK_FADE);
-										cout << " ";
-									}
-									perenos(6, gde);
-									cout << "ВОЙТИ В МЕНЮ";
-
-								}
-
-
-								if (gde == 3002) {
-
-									for (int i = 0; i < 23; i++) {
-										perenos(i, 3001);
-										SetColor(RED_FADE, BLACK);
-										cout << " ";
-									}
-									perenos(6, 3001);
-									cout << "ВОЙТИ В МЕНЮ";
-									gde--;
-								}
-								else
-									if (gde == 3001) {
-
-										for (int i = 0; i < 23; i++) {
-											perenos(i, 3002);
-											SetColor(RED_FADE, BLACK);
-											cout << " ";
-										}
-										perenos(8, 3002);
-
-										cout << "EXIT";
-										gde++;
-									}
-
-
-							}
-							//клавиша вниз
-							else
-								if (KEY[40])
-								{
-									gde = 3002;
-									if (gde == 3002) {
-
-										for (int i = 0; i < 23; i++) {
-											perenos(i, gde);
-											SetColor(RED_FADE, BLACK);
-											cout << " ";
-										}
-										perenos(8, gde);
-										cout << "EXIT";
-
-
-
-
-
-
-
-
-
-										perenos(0, gde);
-
-
-										for (int i = 0; i < 23; i++) {
-											perenos(i, gde);
-											SetColor(RED_FADE, PINK_FADE);
-											cout << " ";
-										}
-										perenos(8, gde);
-										cout << "EXIT";
-
-									}
-
-									if (gde == 3002) {
-
-										for (int i = 0; i < 23; i++) {
-											perenos(i, 3001);
-											SetColor(RED_FADE, BLACK);
-											cout << " ";
-										}
-										perenos(6, 3001);
-										cout << "ВОЙТИ В МЕНЮ";
-										gde--;
-									}
-									else
-										if (gde == 3001) {
-
-											for (int i = 0; i < 23; i++) {
-												perenos(i, 3002);
-												SetColor(RED_FADE, BLACK);
-												cout << " ";
-											}
-											perenos(8, 3002);
-
-											cout << "EXIT";
-											gde++;
-										}
-								}
-								else
-									if (KEY[18])
-									{
-										if (gde == 3001) {
-											what_1 = 2;
-										}
-										else if (gde == 3002) {
-											what_1 = 3;
-										}
-
-									}
-
-
-
-
-
-									else if (what_1 == 2) {
-										mozno = 1;
-										wi = 1;
-										what = 1;
-									}
-									else if (what_1 == 3) {
-
-										break;
-									}
-
-
-
-							if (KEY[27])
-							{
-								wi = 1;
-								mozno = 0;
-							}
-						}
-					}
-
-		}
+		
 
 	}
 	}
