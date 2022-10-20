@@ -163,7 +163,7 @@ void all() {
 
 
 
-	int what = 6;
+	int what = 0;
 	int yes_or_no = 0;
 	//меню
 	if (what == 6) {
@@ -183,7 +183,8 @@ void all() {
 		perenos(6, 2);
 		SetColor(RED_FADE, BLACK);
 		cout << "ВХОД В АКАУНТ";
-
+		string password;
+		string login;
 		int what_1 = 1;
 		int true_false = 1;
 		while (true_false != 0) {
@@ -315,11 +316,14 @@ void all() {
 								gde++;
 							}
 					}
+					
 					else
 						if (KEY[13])
 						{
+							
 							if (gde == 1) {
 								what_1 = 2;
+								
 							}
 							else if (gde == 2) {
 								what_1 = 3;
@@ -327,16 +331,41 @@ void all() {
 
 						}
 			}
-			if (what_1 == 2) {
-
+			
+			if (what_1 == 2) {//низ
+				true_false = 0;
+				system("cls");
+				cout << "ведіть свій нік акаунта: ";
+				cin.ignore(1, '/n');
+				getline(cin, login);
+				
+				cout << "ведіть свій пароль від акаунта: ";
+				SetColor(WHITE, WHITE);
+				getline(cin, password);
+				SetColor(WHITE, BLACK);
+				if (login == "Hiago2007") {
+					if (password == "kerul") {
+						what = 0;
+					}
+				}
 			}
 			if (what_1 == 3) {
+				system("cls");
+				cout << "ведіть свій нік акаунта: ";
+				cin.ignore(1, '/n');
+				getline(cin, login);
+
+				cout << "ведіть свій пароль від акаунта: ";
+				SetColor(WHITE, WHITE);
+				getline(cin, password);
+				SetColor(WHITE, BLACK);
+
 
 			}
 			SetColor(WHITE, BLACK);
 
+		}
 	}
-
 
 	if (what == 0) {
 		setlocale(LC_ALL, "Ukrainian");
