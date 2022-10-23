@@ -1015,6 +1015,7 @@ void all() {
 			perenos(25, 25);
 			cout << " ";
 			//це інти які я використовую в процесі
+			int i3 = 7;
 			int i = 8;
 			int i1 = 9;
 			int i2 = 10;
@@ -1049,9 +1050,14 @@ void all() {
 			x_y = 1 + rand() % (2);
 			x_y1 = 1 + rand() % (2);
 			int anti = 0;
-			
+			int bonus = 0;
+			int bonus_perevirka = 0;
+			int bonus_x = 0;
+			int bonus_y = 0;
 			while (anti != 1)
 			{
+				if (mozno == 0) {
+
 				//х y мяча
 				ConsoleCursorVisible(false, 100);
 				perenos(2, i);
@@ -1062,13 +1068,32 @@ void all() {
 
 				perenos(2, i2);
 				cout << "*";
+				if (bonus == 2) {
+					perenos(2, i3);
+					cout << "*";
+				}
+				perenos(25, 17);
+				cout << bonus_perevirka;
 				perenos(100, 10);
 				cout << obman_x << "  " << obman_y;
+				if (bonus == 0) {
+					bonus_perevirka = 1 + rand() % (100);
+				}
+					if (bonus_perevirka == 50) {
 
-
+						bonus_x = 5 + rand() % (19);
+						bonus_y = 3 + rand() % (10);
+						bonus = 1;
+						bonus_perevirka = 0;
+					}
+				
+				else if (bonus == 1) {
+					perenos(bonus_x, bonus_y);
+					cout << "?";
+				}
 				//мяч
 				
-				if (mozno == 0) {
+				
 					if (perevirka == 1) {
 
 						if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
@@ -1091,11 +1116,7 @@ void all() {
 							if (or_or == 1) {
 								if (obman_y < 14 and obman_x < 24 and obman_y > 0) {
 
-									if (obman_y == i or obman_y == i1 or obman_y == i2) {
-										if (obman_x == 3) {
-											perevirka = 1;
-										}
-									}
+									
 
 
 									perenos(obman_x, obman_y);
@@ -1105,6 +1126,16 @@ void all() {
 									obman_y++;
 									if (obman_x >= 24) {
 										obman_x = 23;
+									}
+									if (bonus_x == obman_x) {
+										if (bonus_y == obman_y) {
+											bonus = 2;
+										}
+									}
+									if (obman_y == i or obman_y == i1 or obman_y == i2) {
+										if (obman_x == 3) {
+											perevirka = 1;
+										}
 									}
 									perenos(obman_x, obman_y);
 									cout << "o";
@@ -1135,6 +1166,11 @@ void all() {
 										obman_y++;
 										if (obman_x >= 24) {
 											obman_x = 23;
+										}
+										if (bonus_x == obman_x) {
+											if (bonus_y == obman_y) {
+												bonus = 2;
+											}
 										}
 										perenos(obman_x, obman_y);
 										cout << "o";
@@ -1170,6 +1206,11 @@ void all() {
 											obman_y++;
 											if (obman_x >= 24) {
 												obman_x = 23;
+											}
+											if (bonus_x == obman_x) {
+												if (bonus_y == obman_y) {
+													bonus = 2;
+												}
 											}
 											perenos(obman_x, obman_y);
 											cout << "o";
@@ -1234,6 +1275,11 @@ void all() {
 									if (obman_y == 0) {
 										obman_y = 1;
 									}
+									if (bonus_x == obman_x) {
+										if (bonus_y == obman_y) {
+											bonus = 2;
+										}
+									}
 									perenos(obman_x, obman_y);
 									cout << "o";
 
@@ -1267,6 +1313,11 @@ void all() {
 										if (obman_y == 0) {
 											obman_y = 1;
 										}
+										if (bonus_x == obman_x) {
+											if (bonus_y == obman_y) {
+												bonus = 2;
+											}
+										}
 										perenos(obman_x, obman_y);
 										cout << "o";
 
@@ -1298,12 +1349,18 @@ void all() {
 
 											obman_x++;
 											obman_y--;
+											obman_y--;
 											if (obman_x >= 24) {
 												obman_x = 23;
 											}
-											obman_y--;
+											
 											if (obman_y == 0) {
 												obman_y = 1;
+											}
+											if (bonus_x == obman_x) {
+												if (bonus_y == obman_y) {
+													bonus = 2;
+												}
 											}
 											perenos(obman_x, obman_y);
 											cout << "o";
@@ -1392,7 +1449,7 @@ void all() {
 								if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
 
 									if (obman_y == i or obman_y == i1 or obman_y == i2) {
-										if (obman_x == 3) {
+										if (obman_x == 3 or obman_x == 2) {
 											perevirka = 1;
 										}
 									}
@@ -1404,6 +1461,25 @@ void all() {
 									obman_y--;
 									if (obman_y == 0) {
 										obman_y = 1;
+									}
+									if (bonus_x == obman_x) {
+										if (bonus_y == obman_y) {
+											bonus = 2;
+										}
+									}
+									if (bonus == 0) {
+										if (obman_y == i or obman_y == i1 or obman_y == i2) {
+											if (obman_x == 3) {
+												perevirka = 1;
+											}
+										}
+									}
+									if (bonus == 2) {
+										if (obman_y == i or obman_y == i1 or obman_y == i2 or obman_y == i3) {
+											if (obman_x == 3) {
+												perevirka = 1;
+											}
+										}
 									}
 									perenos(obman_x, obman_y);
 									cout << "o";
@@ -1421,7 +1497,7 @@ void all() {
 								if (or_or == 2) {
 									if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
 										if (obman_y == i or obman_y == i1 or obman_y == i2) {
-											if (obman_x == 3) {
+											if (obman_x == 3 or obman_x == 2) {
 												perevirka = 1;
 											}
 										}
@@ -1438,6 +1514,25 @@ void all() {
 										}
 										if (obman_x == 0) {
 											obman_x = 1;
+										}
+										if (bonus_x == obman_x) {
+											if (bonus_y == obman_y) {
+												bonus = 2;
+											}
+										}
+										if (bonus == 0) {
+											if (obman_y == i or obman_y == i1 or obman_y == i2) {
+												if (obman_x == 3 or obman_x == 2) {
+													perevirka = 1;
+												}
+											}
+										}
+										if (bonus == 2) {
+											if (obman_y == i or obman_y == i1 or obman_y == i2 or obman_y == i3) {
+												if (obman_x == 3 or obman_x == 2) {
+													perevirka = 1;
+												}
+											}
 										}
 										perenos(obman_x, obman_y);
 										cout << "o";
@@ -1459,7 +1554,7 @@ void all() {
 										if (obman_y < 14 and obman_x > 1 and obman_y > 0 and obman_y <= 11) {
 
 											if (obman_y == i or obman_y == i1 or obman_y == i2) {
-												if (obman_x == 3) {
+												if (obman_x == 3 or obman_x == 2) {
 													perevirka = 1;
 												}
 											}
@@ -1473,6 +1568,25 @@ void all() {
 											obman_y--;
 											if (obman_y == 0) {
 												obman_y = 1;
+											}
+											if (bonus_x == obman_x) {
+												if (bonus_y == obman_y) {
+													bonus = 2;
+												}
+											}
+											if (bonus == 0) {
+												if (obman_y == i or obman_y == i1 or obman_y == i2) {
+													if (obman_x == 3 or obman_x == 2) {
+														perevirka = 1;
+													}
+												}
+											}
+											if (bonus == 2) {
+												if (obman_y == i or obman_y == i1 or obman_y == i2 or obman_y == i3) {
+													if (obman_x == 3 or obman_x == 2) {
+														perevirka = 1;
+													}
+												}
 											}
 											perenos(obman_x, obman_y);
 											cout << "o";
@@ -1543,7 +1657,7 @@ void all() {
 								if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
 
 									if (obman_y == i or obman_y == i1 or obman_y == i2) {
-										if (obman_x == 3) {
+										if (obman_x == 3 or obman_x == 2) {
 											perevirka = 1;
 										}
 									}
@@ -1554,6 +1668,25 @@ void all() {
 
 									obman_x--;
 									obman_y++;
+									if (bonus_x == obman_x) {
+										if (bonus_y == obman_y) {
+											bonus = 2;
+										}
+									}
+									if (bonus == 0) {
+										if (obman_y == i or obman_y == i1 or obman_y == i2) {
+											if (obman_x == 3 or obman_x == 2) {
+												perevirka = 1;
+											}
+										}
+									}
+									if (bonus == 2) {
+										if (obman_y == i or obman_y == i1 or obman_y == i2 or obman_y == i3) {
+											if (obman_x == 3 or obman_x == 2) {
+												perevirka = 1;
+											}
+										}
+									}
 									perenos(obman_x, obman_y);
 									cout << "o";
 									Sleep(85);
@@ -1569,7 +1702,7 @@ void all() {
 									if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
 
 										if (obman_y == i or obman_y == i1 or obman_y == i2) {
-											if (obman_x == 3) {
+											if (obman_x == 3 or obman_x == 2) {
 												perevirka = 1;
 											}
 										}
@@ -1580,6 +1713,25 @@ void all() {
 										obman_x--;
 										obman_x--;
 										obman_y++;
+										if (bonus_x == obman_x) {
+											if (bonus_y == obman_y) {
+												bonus = 2;
+											}
+										}
+										if (bonus == 0) {
+											if (obman_y == i or obman_y == i1 or obman_y == i2) {
+												if (obman_x == 3 or obman_x == 2) {
+													perevirka = 1;
+												}
+											}
+										}
+										if (bonus == 2) {
+											if (obman_y == i or obman_y == i1 or obman_y == i2 or obman_y == i3) {
+												if (obman_x == 3 or obman_x == 2) {
+													perevirka = 1;
+												}
+											}
+										}
 										perenos(obman_x, obman_y);
 										cout << "o";
 										Sleep(85);
@@ -1598,7 +1750,7 @@ void all() {
 										if (obman_y < 14 and obman_x > 1 and obman_y > 0) {
 
 											if (obman_y == i or obman_y == i1 or obman_y == i2) {
-												if (obman_x == 3) {
+												if (obman_x == 3 or obman_x == 2) {
 													perevirka = 1;
 												}
 											}
@@ -1610,6 +1762,25 @@ void all() {
 											obman_x--;
 											obman_y++;
 											obman_y++;
+											if (bonus_x == obman_x) {
+												if (bonus_y == obman_y) {
+													bonus = 2;
+												}
+											}
+											if (bonus == 0) {
+												if (obman_y == i or obman_y == i1 or obman_y == i2) {
+													if (obman_x == 3 or obman_x == 2) {
+														perevirka = 1;
+													}
+												}
+											}
+											if (bonus == 2) {
+												if (obman_y == i or obman_y == i1 or obman_y == i2 or obman_y == i3) {
+													if (obman_x == 3 or obman_x == 2) {
+														perevirka = 1;
+													}
+												}
+											}
 											perenos(obman_x, obman_y);
 											cout << "o";
 											Sleep(85);
@@ -1714,6 +1885,7 @@ void all() {
 							i++;
 							i1++;
 							i2++;
+							i3++;
 							perenos(2, i);
 							cout << " ";
 							perenos(2, i1);
@@ -1721,6 +1893,10 @@ void all() {
 
 							perenos(2, i2);
 							cout << " ";
+							if(bonus == 2){
+								perenos(2, i3);
+								cout << " ";
+							}
 							//+ в верх
 							i--;
 							i1--;
@@ -1729,6 +1905,8 @@ void all() {
 							i--;
 							i1--;
 							i2--;
+							i3--;
+							i3--;
 							perenos(2, i);
 							cout << "*";
 							perenos(2, i1);
@@ -1736,6 +1914,10 @@ void all() {
 
 							perenos(2, i2);
 							cout << "*";
+							if (bonus == 2) {
+								perenos(2, i3);
+								cout << "*";
+							}
 
 						}
 
@@ -1750,12 +1932,17 @@ void all() {
 								i--;
 								i1--;
 								i2--;
+								i3--;
 								perenos(2, i);
 								cout << " ";
 								perenos(2, i1);
 								cout << " ";
 								perenos(2, i2);
 								cout << " ";
+								if (bonus == 2) {
+									perenos(2, i3);
+									cout << " ";
+								}
 								//+ в верх
 								i++;
 								i1++;
@@ -1764,6 +1951,8 @@ void all() {
 								i++;
 								i1++;
 								i2++;
+								i3++;
+									i3++;
 								perenos(2, i);
 								cout << "*";
 								perenos(2, i1);
@@ -1771,15 +1960,19 @@ void all() {
 
 								perenos(2, i2);
 								cout << "*";
-
+								if (bonus == 2) {
+									perenos(2, i3);
+									cout << "*";
+								}
 							}
 
 
 
 						}
 				}
-				
+
 			}
+		
 			//обробка мяча
 
 
