@@ -359,8 +359,40 @@ void all() {
 				SetColor(WHITE, WHITE);
 				getline(cin, password);
 				SetColor(WHITE, BLACK);
+				what_1 = 4;
 
+			}
+			string login1;
+			string password1;
+			int stop = 5;
+			if (what_1 == 4) {
+				
+				system("cls");
+				cout << "ведіть нік для подтверждения: ";
+				cin.ignore(1, '/n');
+				getline(cin, login1);
 
+				cout << "ведіть пароль для подтверждения: ";
+				SetColor(WHITE, WHITE);
+				getline(cin, password1);
+				SetColor(WHITE, BLACK);
+				if (login1 == login) {
+					if (password1 == password) {
+						true_false = 0;
+						what = 0;
+					}
+				}
+				if (login1 != login) {
+					if (password1 != password) {
+						stop--;
+						
+						cout << "у вас осталося спроб: " << stop;
+						Sleep(2000);
+						if (stop == 0) {
+							break;
+						}
+					}
+				}
 			}
 			SetColor(WHITE, BLACK);
 
