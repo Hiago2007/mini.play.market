@@ -148,6 +148,7 @@ void ramka5() {
 	perenos(0, 12);
 	for (int i = 0; i < 24; i++) {
 		cout << "*";
+
 	}
 }
 
@@ -1054,10 +1055,15 @@ void all() {
 			int bonus_perevirka = 0;
 			int bonus_x = 0;
 			int bonus_y = 0;
+			int anti_bonus_x = 0;
+			int anti_bonus_y = 0;
+			int bonus_per = 0;
+			int bonus_per_print = 0;
+			bool anti_bonus = FALSE;
 			while (anti != 1)
 			{
 				if (mozno == 0) {
-
+					
 				//х y мяча
 				ConsoleCursorVisible(false, 100);
 				perenos(2, i);
@@ -1087,15 +1093,42 @@ void all() {
 						bonus_perevirka = 0;
 					}
 				
-				else if (bonus == 1) {
+				if (bonus == 1) {
 					perenos(bonus_x, bonus_y);
+
+					SetColor(PINK_FADE, BLACK);
 					cout << "?";
+					
+					SetColor(WHITE, BLACK);
+					
+				}
+				if (anti_bonus == TRUE) {
+					if (bonus_per == 10) {
+
+						anti_bonus_x = 5 + rand() % (19);
+						anti_bonus_y = 3 + rand() % (10);
+						bonus_per_print = 6;
+
+					}
+					if (bonus_per_print == 6) {
+						perenos(anti_bonus_x, anti_bonus_y);
+
+						SetColor(PINK_FADE, BLACK);
+						cout << "^";
+						anti_bonus = FALSE;
+						bonus_per  = 50;
+						SetColor(WHITE, BLACK);
+					}
 				}
 				//мяч
 				
 				
 					if (perevirka == 1) {
-
+						if (anti_bonus == TRUE) {
+							if (bonus_per <= 10) {
+								bonus_per++;
+							}
+						}
 						if (obman_y == 1 or obman_y == 13 or obman_x == 23 or obman_x == 2) {
 
 							or_or = 1 + rand() % (3);
@@ -1130,7 +1163,17 @@ void all() {
 									if (bonus_x == obman_x) {
 										if (bonus_y == obman_y) {
 											bonus = 2;
+											anti_bonus = TRUE;
 										}
+									}
+									if (anti_bonus_x == obman_x) {
+										if (anti_bonus_y == obman_y) {
+											bonus = 0;
+											bonus_perevirka = 0;
+										}
+									}
+									if (obman_y >= 14) {
+										obman_y = 13;
 									}
 									if (obman_y == i or obman_y == i1 or obman_y == i2) {
 										if (obman_x == 3) {
@@ -1170,7 +1213,17 @@ void all() {
 										if (bonus_x == obman_x) {
 											if (bonus_y == obman_y) {
 												bonus = 2;
+												anti_bonus = TRUE;
 											}
+										}
+										if (anti_bonus_x == obman_x) {
+											if (anti_bonus_y == obman_y) {
+												bonus = 0;
+												bonus_perevirka = 0;
+											}
+										}
+										if (obman_y >= 14) {
+											obman_y = 13;
 										}
 										perenos(obman_x, obman_y);
 										cout << "o";
@@ -1210,7 +1263,17 @@ void all() {
 											if (bonus_x == obman_x) {
 												if (bonus_y == obman_y) {
 													bonus = 2;
+													anti_bonus = TRUE;
 												}
+											}
+											if (anti_bonus_x == obman_x) {
+												if (anti_bonus_y == obman_y) {
+													bonus = 0;
+													bonus_perevirka = 0;
+												}
+											}
+											if (obman_y >= 14) {
+												obman_y = 13;
 											}
 											perenos(obman_x, obman_y);
 											cout << "o";
@@ -1272,12 +1335,19 @@ void all() {
 									if (obman_x >= 24) {
 										obman_x = 23;
 									}
-									if (obman_y == 0) {
+									if (obman_y <= 0) {
 										obman_y = 1;
 									}
 									if (bonus_x == obman_x) {
 										if (bonus_y == obman_y) {
 											bonus = 2;
+											anti_bonus = TRUE;
+										}
+									}
+									if (anti_bonus_x == obman_x) {
+										if (anti_bonus_y == obman_y) {
+											bonus = 0;
+											bonus_perevirka = 0;
 										}
 									}
 									perenos(obman_x, obman_y);
@@ -1310,12 +1380,19 @@ void all() {
 										if (obman_x >= 24) {
 											obman_x = 23;
 										}
-										if (obman_y == 0) {
+										if (obman_y <= 0) {
 											obman_y = 1;
 										}
 										if (bonus_x == obman_x) {
 											if (bonus_y == obman_y) {
 												bonus = 2;
+												anti_bonus = TRUE;
+											}
+										}
+										if (anti_bonus_x == obman_x) {
+											if (anti_bonus_y == obman_y) {
+												bonus = 0;
+												bonus_perevirka = 0;
 											}
 										}
 										perenos(obman_x, obman_y);
@@ -1354,12 +1431,19 @@ void all() {
 												obman_x = 23;
 											}
 											
-											if (obman_y == 0) {
+											if (obman_y <= 0) {
 												obman_y = 1;
 											}
 											if (bonus_x == obman_x) {
 												if (bonus_y == obman_y) {
 													bonus = 2;
+													anti_bonus = TRUE;
+												}
+											}
+											if (anti_bonus_x == obman_x) {
+												if (anti_bonus_y == obman_y) {
+													bonus = 0;
+													bonus_perevirka = 0;
 												}
 											}
 											perenos(obman_x, obman_y);
@@ -1459,12 +1543,19 @@ void all() {
 
 									obman_x--;
 									obman_y--;
-									if (obman_y == 0) {
+									if (obman_y <= 0) {
 										obman_y = 1;
 									}
 									if (bonus_x == obman_x) {
 										if (bonus_y == obman_y) {
 											bonus = 2;
+											anti_bonus = TRUE;
+										}
+									}
+									if (anti_bonus_x == obman_x) {
+										if (anti_bonus_y == obman_y) {
+											bonus = 0;
+											bonus_perevirka = 0;
 										}
 									}
 									if (bonus == 0) {
@@ -1509,7 +1600,7 @@ void all() {
 										obman_x--;
 										obman_x--;
 										obman_y--;
-										if (obman_y == 0) {
+										if (obman_y <= 0) {
 											obman_y = 1;
 										}
 										if (obman_x == 0) {
@@ -1518,6 +1609,7 @@ void all() {
 										if (bonus_x == obman_x) {
 											if (bonus_y == obman_y) {
 												bonus = 2;
+												anti_bonus = TRUE;
 											}
 										}
 										if (bonus == 0) {
@@ -1525,6 +1617,12 @@ void all() {
 												if (obman_x == 3 or obman_x == 2) {
 													perevirka = 1;
 												}
+											}
+										}
+										if (anti_bonus_x == obman_x) {
+											if (anti_bonus_y == obman_y) {
+												bonus = 0;
+												bonus_perevirka = 0;
 											}
 										}
 										if (bonus == 2) {
@@ -1566,12 +1664,19 @@ void all() {
 											obman_x--;
 											obman_y--;
 											obman_y--;
-											if (obman_y == 0) {
+											if (obman_y <= 0) {
 												obman_y = 1;
 											}
 											if (bonus_x == obman_x) {
 												if (bonus_y == obman_y) {
 													bonus = 2;
+													anti_bonus = TRUE;
+												}
+											}
+											if (anti_bonus_x == obman_x) {
+												if (anti_bonus_y == obman_y) {
+													bonus = 0;
+													bonus_perevirka = 0;
 												}
 											}
 											if (bonus == 0) {
@@ -1668,9 +1773,13 @@ void all() {
 
 									obman_x--;
 									obman_y++;
+									if (obman_y >= 14) {
+										obman_y = 13;
+									}
 									if (bonus_x == obman_x) {
 										if (bonus_y == obman_y) {
 											bonus = 2;
+											anti_bonus = TRUE;
 										}
 									}
 									if (bonus == 0) {
@@ -1678,6 +1787,12 @@ void all() {
 											if (obman_x == 3 or obman_x == 2) {
 												perevirka = 1;
 											}
+										}
+									}
+									if (anti_bonus_x == obman_x) {
+										if (anti_bonus_y == obman_y) {
+											bonus = 0;
+											bonus_perevirka = 0;
 										}
 									}
 									if (bonus == 2) {
@@ -1713,9 +1828,19 @@ void all() {
 										obman_x--;
 										obman_x--;
 										obman_y++;
+										if (obman_y >= 14) {
+											obman_y = 13;
+										}
 										if (bonus_x == obman_x) {
 											if (bonus_y == obman_y) {
 												bonus = 2;
+												anti_bonus = TRUE;
+											}
+										}
+										if (anti_bonus_x == obman_x) {
+											if (anti_bonus_y == obman_y) {
+												bonus = 0;
+												bonus_perevirka = 0;
 											}
 										}
 										if (bonus == 0) {
@@ -1762,9 +1887,13 @@ void all() {
 											obman_x--;
 											obman_y++;
 											obman_y++;
+											if (obman_y >= 14) {
+												obman_y = 13;
+											}
 											if (bonus_x == obman_x) {
 												if (bonus_y == obman_y) {
 													bonus = 2;
+													anti_bonus = TRUE;
 												}
 											}
 											if (bonus == 0) {
@@ -1772,6 +1901,12 @@ void all() {
 													if (obman_x == 3 or obman_x == 2) {
 														perevirka = 1;
 													}
+												}
+											}
+											if (anti_bonus_x == obman_x) {
+												if (anti_bonus_y == obman_y) {
+													bonus = 0;
+													bonus_perevirka = 0;
 												}
 											}
 											if (bonus == 2) {
