@@ -100,82 +100,15 @@ void ramka() {
 
 
 
-void ramka1() {
-
-	perenos(0, 0);
-	for (int i = 0; i < 24; i++) {
-		cout << "*";
-	}
-
-	for (int j = 1; j < 13; j++) {
-		perenos(0, j);
-		for (int i = 0; i < 24; i++) {
-
-			perenos(i, j);
-			if (i == 23) {
-				cout << "*" << endl;
-			}
-		}
-	}
-	perenos(0, 12);
-	for (int i = 0; i < 24; i++) {
-		cout << "*";
-	}
-}
 
 
 
 
 
-//основна ф-ція
-void ramka5() {
-
-	perenos(0, 30);
-	for (int i = 0; i < 24; i++) {
-		cout << "*";
-	}
-
-	for (int j = 1; j < 13; j++) {
-		perenos(0, j);
-		for (int i = 0; i < 24; i++) {
-
-			perenos(i, j);
-			if (i == 23) {
-				cout << "*" << endl;
-			}
-		}
-	}
-	perenos(0, 12);
-	for (int i = 0; i < 24; i++) {
-		cout << "*";
-
-	}
-}
-
-void pravila(int what_1) {
-	system("cls");
-	perenos(25, 0);
-	cout << "гра 1 ping-pong її правила : ";
-	perenos(25, 1);
-	cout << "потрібно двигати платформою і відбивати мяч ";
-	perenos(25, 2);
-	cout << "якщо мяч заходить за платформу - 50 очков якщо відбивається +100 ";
-
-	perenos(25, 3);
-	cout << "гра 2 mini_race її правила : ";
-
-	perenos(25, 4);
-	cout << "потрібно уварачоватися від машин щоб не збитися ";
-	perenos(25, 5);
-	cout << "якщо машина заходить за вас то +10% до нового уровня якщо збивається то ви програли";
 
 
 
 
-	Sleep(10000);
-
-	what_1 = 3;
-}
 void ball_right(int & gde, int& obman_x , int& obman_y , int& bonus, bool& anti_bonus, int & or_or, int & x_y1, int & i,  int& i1, int& i2, int& bonus_per, int& bonus_x, int& bonus_y, int& anti_bonus_x, int& anti_bonus_y, int& bonus_perevirka, int& perevirka) {
 	if (anti_bonus == TRUE) {
 		if (bonus_per <= 10) {
@@ -1405,12 +1338,35 @@ void all() {
 							}
 
 						}
+
+
 			}
 			SetColor(WHITE, BLACK);
 
 
 			if (what_1 == 2) {
-				pravila(what_1);
+				system("cls");
+				perenos(25, 0);
+				cout << "гра 1 ping-pong її правила : ";
+				perenos(25, 1);
+				cout << "потрібно двигати платформою і відбивати мяч ";
+				perenos(25, 2);
+				cout << "якщо мяч заходить за платформу - 50 очков якщо відбивається +100 ";
+
+				perenos(25, 3);
+				cout << "гра 2 mini_race її правила : ";
+
+				perenos(25, 4);
+				cout << "потрібно уварачоватися від машин щоб не збитися ";
+				perenos(25, 5);
+				cout << "якщо машина заходить за вас то +10% до нового уровня якщо збивається то ви програли";
+
+
+
+
+				Sleep(20000);
+
+				what_1 = 3;
 
 
 			}
@@ -1434,19 +1390,15 @@ void all() {
 		SetConsoleOutputCP(1251);
 		SetConsoleCP(1251);
 		srand(time(NULL));
-	
 		ramka();
 		int gde = 2;
 		SetColor(RED_FADE, WHITE);
-
 		perenos(6, 1);
 		SetColor(RED_FADE, PINK_FADE);
 		cout << "гра pong";
-
 		perenos(6, 2);
 		SetColor(RED_FADE, BLACK);
 		cout << "гра mini_race";
-
 		int what_1 = 1;
 		int true_false = 1;
 		while (true_false != 0) {
@@ -1590,7 +1542,7 @@ void all() {
 	if (what == 2) {
 		system("cls");
 
-		ramka1();
+		ramka();
 		int gde = 2;
 	
 
