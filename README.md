@@ -49,7 +49,7 @@ RACE [CLICK](https://fabulous-snickerdoodle-add786.netlify.app)
 ## весь код з всіма обновленіями найдете тут
 КОД [CLICK](https://github.com/Hiago2007/mini.play.market/blob/master/MINI_PLAY_MARKET/MINI_PLAY_MARKET.cpp)
 # план роботи №4:
-## робив 1 мысяць ы там несколько днів(+- 1-3 днів)
+## робив 2 місяць і там несколько днів(+- 1-3 днів)
 # план роботи №5:
 CODE DEVELOPER [INSTAGRAM](https://instagram.com/kerul257?igshid=YmMyMTA2M2Y=)
 
