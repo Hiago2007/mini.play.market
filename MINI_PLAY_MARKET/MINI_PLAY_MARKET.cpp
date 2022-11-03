@@ -1010,206 +1010,7 @@ void all() {
 
 	int what = 0;
 	int yes_or_no = 0;
-	//меню
-	if (what == 6) {
-		setlocale(LC_ALL, "Ukrainian");
-		SetConsoleOutputCP(1251);
-		SetConsoleCP(1251);
-		srand(time(NULL));
-		system("cls");
-		ramka();
-		int gde = 2;
-		SetColor(RED_FADE, WHITE);
-
-		perenos(6, 1);
-		SetColor(RED_FADE, PINK_FADE);
-		cout << "РЕГЕСТРАЦІЯ";
-
-		perenos(6, 2);
-		SetColor(RED_FADE, BLACK);
-		cout << "ВХОД В АКАУНТ";
-		string password;
-		string login;
-		int what_1 = 1;
-		int true_false = 1;
-		while (true_false != 0) {
-			if (what_1 == 1) {
-				perenos(0, 0);
-				GetKEY();
-
-				if (KEY[38])
-				{
-					gde = 1;
-					if (gde == 1) {
-						color_black(gde);
-						perenos(6, gde);
-
-						cout << "РЕГЕСТРАЦІЯ";
-
-
-
-
-
-
-
-
-
-						perenos(0, gde);
-
-
-						color_pink;
-						perenos(6, gde);
-						cout << "РЕГЕСТРАЦІЯ";
-
-					}
-
-
-					if (gde == 1002) {
-
-						color_black;
-						perenos(6, 1);
-						cout << "РЕГЕСТРАЦІЯ";
-						gde--;
-					}
-					else
-						if (gde == 1) {
-
-							color_black;
-							perenos(6, 2);
-
-							cout << "ВХОД В АКАУНТ";
-							gde++;
-						}
-
-
-				}
-				//клавиша вниз
-				else
-					if (KEY[40])
-					{
-						gde = 2;
-						if (gde == 2) {
-
-							color_black;
-							perenos(6, gde);
-
-
-
-
-
-
-
-
-
-
-							perenos(0, gde);
-
-
-							color_pink;
-							perenos(6, gde);
-							cout << "ВХОД В АКАУНТ";
-
-						}
-
-						if (gde == 2) {
-
-							color_black;
-							perenos(6, 1);
-							cout << "РЕГЕСТРАЦІЯ";
-							gde--;
-						}
-						else
-							if (gde == 1) {
-
-								color_black;
-								perenos(6, 2);
-
-								cout << "ВХОД В АКАУНТ";
-								gde++;
-							}
-					}
-					
-					else
-						if (KEY[13])
-						{
-							
-							if (gde == 1) {
-								what_1 = 2;
-								
-							}
-							else if (gde == 2) {
-								what_1 = 3;
-							}
-
-						}
-			}
-			
-			if (what_1 == 2) {//низ
-				true_false = 0;
-				system("cls");
-				cout << "ведіть свій нік акаунта: ";
-				cin.ignore(1, '/n');
-				getline(cin, login);
-				
-				cout << "ведіть свій пароль від акаунта: ";
-				SetColor(WHITE, WHITE);
-				getline(cin, password);
-				SetColor(WHITE, BLACK);
-				if (login == "Hiago2007") {
-					if (password == "kerul") {
-						what = 0;
-					}
-				}
-			}
-			if (what_1 == 3) {
-				system("cls");
-				cout << "ведіть свій нік акаунта: ";
-				cin.ignore(1, '/n');
-				getline(cin, login);
-
-				cout << "ведіть свій пароль від акаунта: ";
-				SetColor(WHITE, WHITE);
-				getline(cin, password);
-				SetColor(WHITE, BLACK);
-				what_1 = 4;
-
-			}
-			string login1;
-			string password1;
-			int stop = 5;
-			if (what_1 == 4) {
-				
-				system("cls");
-				cout << "ведіть нік для подтверждения: ";
-				cin.ignore(1, '/n');
-				getline(cin, login1);
-
-				cout << "ведіть пароль для подтверждения: ";
-				SetColor(WHITE, WHITE);
-				getline(cin, password1);
-				SetColor(WHITE, BLACK);
-				if (login1 == login) {
-					if (password1 == password) {
-						true_false = 0;
-						what = 0;
-					}
-				}
-				if (login1 != login) {
-					if (password1 != password) {
-						stop--;
-						
-						cout << "у вас осталося спроб: " << stop;
-						Sleep(2000);
-						if (stop == 0) {
-							break;
-						}
-					}
-				}
-			}
-			SetColor(WHITE, BLACK);
-
-		}
-	}
+	
 
 	if (what == 0) {
 		setlocale(LC_ALL, "Ukrainian");
@@ -1757,7 +1558,10 @@ void all() {
 			while (anti != 1)
 			{
 				if (mozno == 0) {
-					
+					if (chochik == -200) {
+						anti = 1;
+						mozno = 1;
+					}
 				//х y мяча
 				ConsoleCursorVisible(false, 100);
 				perenos(0, 12);
@@ -1777,10 +1581,7 @@ void all() {
 					perenos(2, i3);
 					cout << "*";
 				}
-				perenos(25, 17);
-				cout << bonus_perevirka;
-				perenos(100, 10);
-				cout << obman_x << "  " << obman_y;
+			
 				if (bonus == 0) {
 					bonus_perevirka = 1 + rand() % (100);
 				}
@@ -1940,7 +1741,18 @@ void all() {
 				}
 
 			}
-		
+			while (anti == 1) {
+
+				system("cls");
+				perenos(30, 1);
+				cout << "ви нажаль програли";
+				perenos(30, 2);
+				cout << "через 5 секунд програма закриється";
+				Sleep(5000);
+				break;
+
+
+		}
 			//обробка мяча
 
 
