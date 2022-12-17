@@ -156,8 +156,8 @@ void ball_right(int & gde, int& obman_x , int& obman_y , int& bonus, bool& anti_
 
 				obman_x++;
 				obman_y++;
-				if (obman_x >= 24) {
-					obman_x = 23;
+				if (obman_x > 24) {
+					obman_x = 22;
 				}
 				if (bonus_x == obman_x) {
 					if (bonus_y == obman_y) {
@@ -206,8 +206,8 @@ void ball_right(int & gde, int& obman_x , int& obman_y , int& bonus, bool& anti_
 					obman_x++;
 					obman_x++;
 					obman_y++;
-					if (obman_x >= 24) {
-						obman_x = 23;
+					if (obman_x > 24) {
+						obman_x = 22;
 					}
 					if (bonus_x == obman_x) {
 						if (bonus_y == obman_y) {
@@ -256,8 +256,8 @@ void ball_right(int & gde, int& obman_x , int& obman_y , int& bonus, bool& anti_
 						obman_x++;
 						obman_y++;
 						obman_y++;
-						if (obman_x >= 24) {
-							obman_x = 23;
+						if (obman_x > 24) {
+							obman_x = 22;
 						}
 						if (bonus_x == obman_x) {
 							if (bonus_y == obman_y) {
@@ -331,10 +331,10 @@ void ball_right(int & gde, int& obman_x , int& obman_y , int& bonus, bool& anti_
 
 				obman_x++;
 				obman_y--;
-				if (obman_x >= 24) {
-					obman_x = 23;
+				if (obman_x > 24) {
+					obman_x = 22;
 				}
-				if (obman_y <= 0) {
+				if (obman_y < 0) {
 					obman_y = 1;
 				}
 				if (bonus_x == obman_x) {
@@ -376,10 +376,10 @@ void ball_right(int & gde, int& obman_x , int& obman_y , int& bonus, bool& anti_
 					obman_x++;
 					obman_x++;
 					obman_y--;
-					if (obman_x >= 24) {
-						obman_x = 23;
+					if (obman_x > 24) {
+						obman_x = 22;
 					}
-					if (obman_y <= 0) {
+					if (obman_y < 0) {
 						obman_y = 1;
 					}
 					if (bonus_x == obman_x) {
@@ -426,11 +426,11 @@ void ball_right(int & gde, int& obman_x , int& obman_y , int& bonus, bool& anti_
 						obman_x++;
 						obman_y--;
 						obman_y--;
-						if (obman_x >= 24) {
-							obman_x = 23;
+						if (obman_x > 24) {
+							obman_x = 22;
 						}
 
-						if (obman_y <= 0) {
+						if (obman_y < 0) {
 							obman_y = 1;
 						}
 						if (bonus_x == obman_x) {
@@ -534,8 +534,11 @@ void ball_left(int& gde, int& obman_x, int& obman_y, int& bonus, bool& anti_bonu
 
 				obman_x--;
 				obman_y--;
-				if (obman_y <= 0) {
+				if (obman_y < 0) {
 					obman_y = 1;
+				}
+				if (obman_x > 24) {
+					obman_x = 22;
 				}
 				if (bonus_x == obman_x) {
 					if (bonus_y == obman_y) {
@@ -591,11 +594,14 @@ void ball_left(int& gde, int& obman_x, int& obman_y, int& bonus, bool& anti_bonu
 					obman_x--;
 					obman_x--;
 					obman_y--;
-					if (obman_y <= 0) {
+					if (obman_y < 0) {
 						obman_y = 1;
 					}
 					if (obman_x == 0) {
 						obman_x = 1;
+					}
+					if (obman_x > 24) {
+						obman_x = 22;
 					}
 					if (bonus_x == obman_x) {
 						if (bonus_y == obman_y) {
@@ -655,8 +661,11 @@ void ball_left(int& gde, int& obman_x, int& obman_y, int& bonus, bool& anti_bonu
 						obman_x--;
 						obman_y--;
 						obman_y--;
-						if (obman_y <= 0) {
+						if (obman_y < 0) {
 							obman_y = 1;
+						}
+						if (obman_x > 24) {
+							obman_x = 22;
 						}
 						if (bonus_x == obman_x) {
 							if (bonus_y == obman_y) {
@@ -767,6 +776,9 @@ void ball_left(int& gde, int& obman_x, int& obman_y, int& bonus, bool& anti_bonu
 				if (obman_y > 12) {
 					obman_y = 11;
 				}
+				if (obman_x > 24) {
+					obman_x = 22;
+				}
 				if (bonus_x == obman_x) {
 					if (bonus_y == obman_y) {
 						bonus = 2;
@@ -819,6 +831,9 @@ void ball_left(int& gde, int& obman_x, int& obman_y, int& bonus, bool& anti_bonu
 					obman_x--;
 					obman_x--;
 					obman_y++;
+					if (obman_x > 24) {
+						obman_x = 22;
+					}
 					if (obman_y > 12) {
 						obman_y = 11;
 					}
@@ -886,6 +901,9 @@ void ball_left(int& gde, int& obman_x, int& obman_y, int& bonus, bool& anti_bonu
 								bonus = 2;
 								anti_bonus = TRUE;
 							}
+						}
+						if (obman_x > 24) {
+							obman_x = 22;
 						}
 						if (bonus == 0) {
 							if (obman_y == i or obman_y == i1 or obman_y == i2) {
@@ -1801,7 +1819,7 @@ void ball_right_2(int& left_or_right, int& obman_y, int& obman_x, int& or_or, in
 	if (obman_x == 22) {
 		perevirka = 2;
 	}
-	if (obman_y == 14) {
+	/*if (obman_y == 14) {
 		for (int i = 0; i < right; i++) {
 			cout << "*";
 		}
@@ -1809,7 +1827,7 @@ void ball_right_2(int& left_or_right, int& obman_y, int& obman_x, int& or_or, in
 		x_y1 = 1 + rand() % (2);
 		obman_y = 13;
 
-	}
+	}*/
 
 
 
@@ -1981,7 +1999,7 @@ void ball_left_2(int& left_or_right, int& obman_y, int& obman_x, int& or_or, int
 			x_y = 2;
 
 		}
-		if (obman_y == -1) {
+		/*if (obman_y == -1) {
 			perenos(0, 0);
 			for (int i = 0; i < right; i++) {
 				cout << "*";
@@ -1990,7 +2008,7 @@ void ball_left_2(int& left_or_right, int& obman_y, int& obman_x, int& or_or, int
 
 			x_y = 1 + rand() % (2);
 
-		}
+		}*/
 		if (obman_y == 0) {
 			cout << "*";
 			perenos(obman_x, 1);
@@ -2098,7 +2116,7 @@ void ball_left_2(int& left_or_right, int& obman_y, int& obman_x, int& or_or, int
 		if (obman_x == 1) {
 			perevirka = 1;
 		}
-		if (obman_y == -1) {
+		/*if (obman_y == -1) {
 			perenos(0, 0);
 			for (int i = 0; i < right; i++) {
 				cout << "*";
@@ -2107,7 +2125,7 @@ void ball_left_2(int& left_or_right, int& obman_y, int& obman_x, int& or_or, int
 
 			x_y = 1 + rand() % (2);
 
-		}
+		}*/
 
 		if (obman_x == 0) {
 			x_y = perevirka = 1;
@@ -2488,6 +2506,22 @@ void all() {
 						cout << "*";
 
 					}
+					gotoxy(92, 20);
+					cout << obman_x<<"-"<<obman_y;
+
+
+					gotoxy(92, 0);
+					cout << " ";
+					gotoxy(93, 0);
+					cout << " ";
+					gotoxy(94, 0);
+					cout << " ";
+					gotoxy(95, 0);
+					cout << " ";
+					gotoxy(96, 0);
+					cout << " ";
+					gotoxy(93, 0);
+					cout << chochik;
 					perenos(2, i);
 					cout << "*";
 
@@ -2525,7 +2559,7 @@ void all() {
 						if (bonus_per == 10) {
 
 							anti_bonus_x = 5 + rand() % (19);
-							anti_bonus_y = 3 + rand() % (10);
+							anti_bonus_y = 3 + rand() % (9);
 							bonus_per_print = 6;
 
 						}
